@@ -38,7 +38,7 @@ $postjob.addEventListener("submit",async(e)=>{
     })
      //console.log(result,"result")
     if (!result.error) {
-      //  location.href="/company/companyindex.html"
+        location.href="/company/companyindex.html"
         alert("Job Posted")
     } else {
         alert("unable to post job")
