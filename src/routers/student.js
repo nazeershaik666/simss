@@ -2,17 +2,71 @@ const student=require("../models/students.js")
 const express=require("express")
 const auth=require("../middleware/auth.js")
 const jwt=require("jsonwebtoken")
-const {sendPasswordEmail,sendWelcomeEmail}=require("../emails/account.js")
+const {sendPasswordEmail,sendWelcomeEmail, sendOtp}=require("../emails/account.js")
 
 const router = new express.Router()
 const Jwt_Secret="thisisseceret"
 
+var savedOTPS = {
+
+};
 router.get("/test",(req,res)=>{
     res.send({
         name:"server is working"
     })
 })
- 
+
+router.post("/otp",(req,res)=>{
+    var randomdigit = Math.floor(100000 + Math.random() * 900000)
+    var otpemail = req.body.email
+    try{
+        const res1 = sendOtp(otpemail,randomdigit)
+        if(res1){ 
+            res.send({
+               msg:"OTP Sent"
+           })
+           savedOTPS[otpemail] = randomdigit;
+           setTimeout(
+               () => {
+                   delete savedOTPS[`${otpemail}`]
+               },100000
+           )
+          console.log(savedOTPS) 
+       }
+       else{
+           res.send({msg: "Errorr"})
+           console.log(savedOTPS)
+       }
+}catch(e){
+        console.log(e)
+        res.status(400).send({error:"unable to send OTP"})
+    }
+    
+})
+
+router.post("/otpp",(req,res)=>{
+    const mails = req.body.email
+    const otps = req.body.otp
+
+    if(savedOTPS[mails]){
+        if(Number(savedOTPS[mails]) == Number(otps)){
+        res.send({
+                msg : savedOTPS[mails]
+            })
+    }else{
+        res.send({
+            err : "Wrong OTP, Please re-enter"
+        })
+    }
+}
+    else{
+        res.send({
+            error: "OTP timeout, Please re-send"
+        })
+    }
+
+})
+
 //endpoint for creating user
 router.post("/student",async(req,res)=>{
     const user = new student(req.body)
