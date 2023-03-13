@@ -76,11 +76,6 @@ if(flag == true){
  console.log(b.companyname)
  return b.companyname
   }
-
-
-
-
-
   }
 
   

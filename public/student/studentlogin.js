@@ -51,7 +51,7 @@ $studentLoginForm.addEventListener('submit',async (e)=>{
     const $email=document.getElementById("s-mail").value
     const $password=document.getElementById("s-pass").value
 
-    const result = await fetch('/student/login', {
+  const result = await fetch('/student/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -71,7 +71,9 @@ $studentLoginForm.addEventListener('submit',async (e)=>{
     } else {
         alert(result.error)
     }
+
 })
+
 
 
 

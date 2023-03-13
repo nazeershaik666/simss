@@ -106,7 +106,9 @@
         font-size: 13px;
         margin-top: 20px;
       }
-
+      .otpverify{
+        display: none;
+      }
       footer {
         text-align: center;
         margin-top: 10px;
@@ -123,9 +125,8 @@
         <h1>Sign Up</h1>
         <div class="options">
           <a class="option student current" href="register.html">Student</a>
-          <a class="option company" href="../company/companyregister.html"
-            >Company</a
-          >
+          <a class="option company" href="../company/companyregister.html">Company</a
+            >
          
         </div>
         <form id="student-register">
@@ -143,7 +144,10 @@
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" required />
+            <input type="email" name="email" id="email" required /> 
+            <button style="display: block;" id="verify">Verify your email</button>
+            <input type="text" id="enterOtp" style="display: none; margin-top: 20px;" required />
+            <button style="display: none;" id="checkOtp">Submit OTP</button>
           </div>
           <div class="form-group">
             <label for="phone">Phone</label>

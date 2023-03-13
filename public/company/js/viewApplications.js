@@ -76,11 +76,12 @@ $searchbutton.addEventListener('click',async (e)=>{
 
   if(mappedUser.length>0){
   usersContainer.innerHTML = ""
+  if(searchterm){
   for(let z=0; z<mappedUser.length;z++){
     const parser = new DOMParser();
-    var str1 = parser.parseFromString(mappedUser[z], "text/html");
-    var str2 = str1.getElementById("findname").textContent.toLowerCase()
-    var str3 = str1.getElementById("findage").textContent
+    const str1 = parser.parseFromString(mappedUser[z], "text/html");
+    const str2 = str1.getElementById("findname").textContent.toLowerCase()
+    const str3 = str1.getElementById("findage").textContent
 
     
 
@@ -91,10 +92,59 @@ $searchbutton.addEventListener('click',async (e)=>{
     }
     if(str3 == searchterm){
     usersContainer.innerHTML += mappedUser[z]
-    console.log(str2 == searchterm , searchterm)
+    console.log(str3 == searchterm , searchterm)
     userfilter = true
     }
     }
+  }else{
+    const name = document.getElementById("name").value
+    const age = document.getElementById("age").value
+    if(name && !age){
+      for(let z=0; z<mappedUser.length;z++){
+        const parser = new DOMParser();
+        const str1 = parser.parseFromString(mappedUser[z], "text/html");
+        const str2 = str1.getElementById("findname").textContent.toLowerCase()
+       if(str2.includes(name)){
+         usersContainer.innerHTML += mappedUser[z]
+         console.log(str2.includes(name) , str2 , name)
+         userfilter = true
+        }
+        }
+    }
+    else if(age && !name){
+      for(let z=0; z<mappedUser.length;z++){
+        const parser = new DOMParser();
+        const str1 = parser.parseFromString(mappedUser[z], "text/html");
+        const str3 = str1.getElementById("findage").textContent
+    
+        if(str3 == Number(age)){
+        usersContainer.innerHTML += mappedUser[z]
+        console.log(str3 == Number(age) , age)
+        userfilter = true
+        } 
+      }
+    }
+        else{
+          const name = document.getElementById("name").value
+          const age = document.getElementById("age").value
+          for(let z=0; z<mappedUser.length;z++){
+            const parser = new DOMParser();
+            const str1 = parser.parseFromString(mappedUser[z], "text/html");
+            const str2 = str1.getElementById("findname").textContent.toLowerCase()
+            const str3 = str1.getElementById("findage").textContent
+        
+           if(str2.includes(name) && str3 == Number(age)){
+             usersContainer.innerHTML += mappedUser[z]
+             console.log(str2.includes(searchterm) , str3 == Number(age) , str2 , str3 , name , age)
+             userfilter = true
+            }
+            }
+
+
+        }
+    
+  
+  }
   /*  document.getElementById("jobs").innerHTML = " ";
     for(let y=0; y< userfilter.length; y++){ 
      usersContainer.innerHTML += userfilter[y] ;
