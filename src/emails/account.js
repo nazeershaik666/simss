@@ -54,11 +54,11 @@ const sendWelcomeEmail =(email)=>{
     
     
     nodemailer.createTransport({
-        host: "sandbox.smtp.mailtrap.io",
-        port: 2525,
-        auth: {
-          user: "86207576053cfe",
-          pass: "df87b6e5a6cb1d"
+      host: "live.smtp.mailtrap.io",//sandbox.smtp.mailtrap.io",
+      port: 587,
+      auth: {
+        user: "api",//86207576053cfe",
+        pass: "82bc5abcc46929231dcc93949027783b"//df87b6e5a6cb1d"
         }
       }).sendMail(welcomeMsg,(err)=>{
         if(err){
@@ -71,7 +71,7 @@ const sendWelcomeEmail =(email)=>{
 
 const sendPasswordEmail=(email,link)=>{    
     const passwordMsg={
-        from:"mailtrap@naveenrio.me",
+        from:"mailtrap@shashank.me",
         to:email,
         subject:"Password reset mail",
         html:`<div><h4>Hi, Here is the link for reset password for your account in student internship portal\n kindly reset the password\n Note:The link is only vaild for fifteen minutes after that the link expries</h4><a href=${link}>Password reset link</a>`
@@ -99,7 +99,7 @@ const sendPasswordEmail=(email,link)=>{
 const sendOtp=(otpemail,randomdigit)=>{  
   let ok = true
   const otp={
-      from:"mailtrap@naveenrio.me",
+      from:"mailtrap@shashank.me",
       to:otpemail,
       subject:`${randomdigit} is the OTP`,
       html:`<div><h4>Hi, Here is the One Time Password : <b>${randomdigit}</b> to login into your account in student internship portal <br> \n kindly enter the OTP\n <br> <br> Note:The OTP is only vaild for fifteen minutes after that the OTP expries</h4>`
@@ -130,7 +130,7 @@ return a1()
 const sendReview=(name,mail,msg,rating)=>{
   let ok = true
   const rvw={
-    from:"mailtrap@naveenrio.me",
+    from:"mailtrap@shashank.me",
     to:"chennushashank509@gmail.com",
     subject:`New review from ${name}`,
     html:`<div><h4>Hi, Here is the new review from : <b>${name} with mail ${mail}, <br> <br> Message: ${msg} </b> <br><br> \n <b>Rating: ${rating}</b> \n <br> <br> </h4>`
