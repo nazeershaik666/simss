@@ -131,7 +131,7 @@ const sendReview=(name,mail,msg,rating)=>{
   let ok = true
   const rvw={
     from:"mailtrap@naveenrio.me",
-    to:"alex47nr@gmail.com",
+    to:"chennushashank509@gmail.com",
     subject:`New review from ${name}`,
     html:`<div><h4>Hi, Here is the new review from : <b>${name} with mail ${mail}, <br> <br> Message: ${msg} </b> <br><br> \n <b>Rating: ${rating}</b> \n <br> <br> </h4>`
 } 
