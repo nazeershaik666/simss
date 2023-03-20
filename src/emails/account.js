@@ -32,6 +32,32 @@ client
 
   */
 
+  const sendRefer =(referName,mailid,company,title,exp,respons,worktype,emptype,empbenefits)=>{  
+   // console.log("acounts ",company,title,exp,respons,worktype,emptype,empbenefits)
+    const refer={
+        from:"mailtrap@naveenrio.me",
+        to: mailid,
+        subject:`Your friend ${referName} has referred you a job`,
+        html:`<div><h3>Hi, Your friend ${referName} has referred you a job in <h1> <a href='https://student-internship-kqr0.onrender.com'>Student Intership Management System</a> </h1> <br> <br><h2>Job Description</h2><p>Company Name : ${company} </p> <br><p>Job Title : ${title}</p> <br><p>Experience level : ${exp} years</p> <br><p>Job Responsibilities :${respons}</p> <br><p>Work Type : ${worktype} </p> <br><p>Employee type : ${emptype}</p> <br><p>Employee benifits : ${empbenefits} </p> <br> </div>`
+    }
+  
+    nodemailer.createTransport({
+      host: "live.smtp.mailtrap.io",//sandbox.smtp.mailtrap.io",
+      port: 587,
+      auth: {
+        user: "api",//86207576053cfe",
+        pass: "82bc5abcc46929231dcc93949027783b"//df87b6e5a6cb1d"
+      }
+    }).sendMail(refer,(err)=>{
+      if(err){
+       return console.log("error occurs",err)
+       
+      }else{
+      return console.log("email sent")
+      }
+  })
+  }
+
 
 const sendWelcomeEmail =(email)=>{
     const welcomeMsg={
@@ -94,7 +120,30 @@ const sendPasswordEmail=(email,link)=>{
     })
 }
 
+const sendJobMails=(studentmails)=>{    
+  const passwordMsg={
+      from:"mailtrap@naveenrio.me",
+      to:studentmails,
+      subject:"New Job Posted!",
+      html:`<div><h4>Hi, A new job notification was posted in student internship portal\n kindly apply for it! <br> <br> \n Note: Job postion may be filled soon so apply for it using </h4> <a href="https://student-internship-kqr0.onrender.com">link</a>`
+  }
 
+  nodemailer.createTransport({
+      host: "live.smtp.mailtrap.io",//sandbox.smtp.mailtrap.io",
+      port: 587,
+      auth: {
+        user: "api",//86207576053cfe",
+        pass: "82bc5abcc46929231dcc93949027783b"//df87b6e5a6cb1d"
+      }
+    }).sendMail(passwordMsg,(err)=>{
+      if(err){
+       return console.log("error occurs",err)
+       
+      }else{
+      return console.log(" job email sent")
+      }
+  })
+}
 
 const sendOtp=(otpemail,randomdigit)=>{  
   let ok = true
@@ -219,5 +268,7 @@ module.exports={
     sendCompanyBlockEmail,
     sendStudentBlockEmail,
     sendOtp,
-    sendReview
+    sendReview,
+    sendJobMails,
+    sendRefer
 }
