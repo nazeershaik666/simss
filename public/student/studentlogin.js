@@ -61,15 +61,21 @@ $studentLoginForm.addEventListener('submit',async (e)=>{
             password:$password
         })
     }).then((res) => res.json())
-    console.log(result,result)
+   // console.log(result,result)
     if (!result.error) {
         localStorage.setItem('token', result.token)
         localStorage.setItem('name',result.user.firstname)
         localStorage.setItem('studentid',result.user._id)
         location.href="/student/studentindex.html"
-        alert("success")
+       // alert("success")
     } else {
-        alert(result.error)
+      //  alert(result.error)
+      document.getElementById("s-pass").classList.add("wrong")
+      setTimeout(
+        () => {
+            document.getElementById("s-pass").classList.remove("wrong")
+        },1200
+    )
     }
 
 })
@@ -101,9 +107,14 @@ $companyLoginForm.addEventListener('submit',async (e)=>{
         localStorage.setItem('companyid',result.user._id)
         localStorage.setItem('usertype','company')
         location.href="/company/companyindex.html"
-        alert("success")
+     //   alert("success")
     } else {
-        alert(result.error)
+        document.getElementById("c-pass").classList.add("wrong")
+        setTimeout(
+          () => {
+              document.getElementById("c-pass").classList.remove("wrong")
+          },1200
+      )
     }
 })
 

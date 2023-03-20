@@ -3,7 +3,7 @@ const token=localStorage.getItem('token')
 const jobbody=document.getElementById('job-body')
 const search=document.getElementById('searchbox')
 const $searchbutton=document.querySelector('.searchbutton')
-
+const studentName = localStorage.getItem("name");
 
 
 let usersContainer = document.getElementById("jobs");
@@ -95,7 +95,8 @@ if(flag == true){
     <p>Employee type: ${job.emptype} </p>
     <p>Employee benifits: ${job.empbenefits} </p>
     <button class="btn"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download About company" download="About company.pdf" href="data:application/octet-stream;base64,${job.aboutcompany.companyData.toString('base64')}"> Download About Company</a></button><br />
-      <button class="apply-btn btn"  onclick="window.location.href='applypage.html?jobid=${job._id}'" type="submit" value="Submit" > Apply </button>    
+      <button class="apply-btn btn"  onclick="window.location.href='applypage.html?jobid=${job._id}'" type="submit" value="Submit" > Apply </button> <br>
+      <button class="apply-btn btn"  onclick="window.location.href='applypage.html?jobid=${job._id}'" type="submit" value="Submit" > Refer </button>   
   </div>`;
   });
 
@@ -138,11 +139,12 @@ window.onload=async()=>{
           Job Responsibilities :${job.requirements}
         </p>
         <p>Work Type : ${job.worktype} </p>
-        <p>Employee type : ${job.emptype} </p>
+        <p>Employee type : ${job.emptype}</p>
         <p>Employee benifits : ${job.empbenefits} </p>
-        <button class="btn"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download About company" download="About company.pdf" href="data:application/octet-stream;base64,${job.aboutcompany.companyData.toString('base64')}"> Download About Company </a></button><br />
-          <button class="apply-btn btn"  onclick="window.location.href='applypage.html?jobid=${job._id}'" type="submit" value="Submit" > Apply </button>    
-      </div>  `;
+        <button class="btn"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download About company" download="About company.pdf" href="data:application/octet-stream;base64,${job.aboutcompany.companyData.toString('base64')}"> Download About Company </a></button><br/>
+          <button class="apply-btn btn"  onclick="window.location.href='applypage.html?jobid=${job._id}'" type="submit" value="Submit" > Apply </button>
+          <button class="apply-btn btn" style="margin-left: 20px;"  onclick= "getMail('${job.companyname}','${job.title}','${job.yoe}','${job.requirements}','${job.worktype}','${job.emptype}','${job.empbenefits}')"> Refer </button>  
+      </div>`;
       });
 
       if(mappedUsers.length>0){
@@ -154,4 +156,30 @@ window.onload=async()=>{
         //    usersContainer.innerHTML = "<h1>There are no pending applications to review, Please comeback later!</h1>"
           // location.href="../student/studentindex.html"
       }
+}
+
+async function getMail(companyname,title,yoe,requirements,worktype,emptype,empbenefits){
+// console.log(companyname,title,yoe,requirements,worktype,emptype,empbenefits)
+  const mailid = prompt("Enter your friend Mail ID : ");
+  console.log(mailid)
+ if(mailid){
+ const result2 = await fetch('/refer', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+    name : studentName,
+    mail : mailid,
+    company : companyname,
+    title : title,
+    exp : yoe,
+    responsibilities : requirements,
+    worktype : worktype,
+    emptype : emptype,
+    empbenefits : empbenefits
+})
+  }).then((res) => res.json())
+  console.log(result2)
+}
 }

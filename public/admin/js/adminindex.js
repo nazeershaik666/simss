@@ -63,7 +63,7 @@ $logoutbtn.addEventListener('click',async(e)=>{
     }).then((res)=>{
         localStorage.clear()
         location.href="/"
-        alert("success")
+       // alert("success")
        return res.json()
     })
     
