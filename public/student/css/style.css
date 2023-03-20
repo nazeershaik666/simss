@@ -37,11 +37,13 @@ p{
 /* utilities  */
 .container{
   margin: auto;
-  max-width: 1100px;
-  overflow: auto;
   padding: 0 20px;
-  
+  max-width: 1100px;
+
 }
+.clr{
+    clear: both;
+ }
 .container1{
   margin: auto;
   max-width: 1100px;
@@ -58,21 +60,37 @@ p{
     color: rgb(246, 245, 250);
 }
 
-.btn{
+.btns{
     display: inline-block;
-    font-size: 18px;
-    color: #fff;
-    background: #333;
-    padding: 13px 20px;
-    border: none;
+    font-size: 12px;
+    margin-bottom: 10px;
+    padding: 8px 15px;
     cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    border: 0px;
+    font-weight: 800;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
-.btn:hover{
-    background: #f7c08a;
-    color: #333;
+.btns:hover{
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
 }
-
+.btns:active {
+    transform: scale(0.95);
+  }
 .btn-light {
     background: #fff;
     color: #333;
@@ -153,8 +171,8 @@ p{
 .boxes .totaljobs{
     height: 20rem;
     width: 20rem;
-    background: #cfcfcf;
-   
+    background: #e7e7e7;
+    opacity: 90%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     color: #000000;
     border-radius: 8px;
@@ -162,12 +180,15 @@ p{
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    transition: 1s;
 }
-
+.boxes .totaljobs:hover{
+    transform: scale(1.2);
+}
 .boxes .totalapplied{
     height: 20rem;
     width: 20rem;
-    background: #cfcfcf;
+    background: #e7e7e7;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     color: #000000;
     border-radius: 8px;
@@ -175,12 +196,44 @@ p{
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    transition: 1s;
 }
-
+.boxes .totalapplied:hover{
+    transform: scale(1.2);
+}
 .name-welcome{
     text-align: center;
 }
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 150px;
+    margin-top: 50px;
+}
 
+.footer .social a{
+    margin-right: 20px;
+    color: #fff;
+}
+
+.footer .social a:hover{
+    color: #28a745;
+}
+.box{
+    text-align: center;
+    float:left;
+    width: 33.33%;
+    padding:50px 30px;
+    height: 100%;
+}
+.bg-dark {
+    background: #333;
+    color: #fff;
+    
+}
 #jobs{
     display: grid;
     grid-template-columns: auto auto auto auto;
@@ -202,7 +255,13 @@ p{
     flex-grow:0.5;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     box-shadow: rgba(0, 0, 0, 0) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
-    
+    transition: 1s;
+}
+
+.job:hover{
+
+    transform: scale(1.1);
+
 }
  .btn{
     padding:10px;

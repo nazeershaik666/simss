@@ -133,7 +133,7 @@ window.onload=async()=>{
         return `<div class="job">
         <h1>Job Description</h1>
         <p>Company Name : ${job.companyname} </p>
-        <p>Job Title : ${job.title}</p>
+        <p >Job Title : <span style="text-transform: uppercase; font-weight: bolder;">${job.title}</span></p>
         <p>Experience level : ${job.yoe} years</p>
         <p>
           Job Responsibilities :${job.requirements}
@@ -141,9 +141,9 @@ window.onload=async()=>{
         <p>Work Type : ${job.worktype} </p>
         <p>Employee type : ${job.emptype}</p>
         <p>Employee benifits : ${job.empbenefits} </p>
-        <button class="btn"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download About company" download="About company.pdf" href="data:application/octet-stream;base64,${job.aboutcompany.companyData.toString('base64')}"> Download About Company </a></button><br/>
-          <button class="apply-btn btn"  onclick="window.location.href='applypage.html?jobid=${job._id}'" type="submit" value="Submit" > Apply </button>
-          <button class="apply-btn btn" style="margin-left: 20px;"  onclick= "getMail('${job.companyname}','${job.title}','${job.yoe}','${job.requirements}','${job.worktype}','${job.emptype}','${job.empbenefits}')"> Refer </button>  
+        <button class="btns"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download About company" download="About company.pdf" href="data:application/octet-stream;base64,${job.aboutcompany.companyData.toString('base64')}"> Download About Company </a></button><br/>
+          <button class="apply-btn btns"  onclick="window.location.href='applypage.html?jobid=${job._id}'" type="submit" value="Submit" > Apply </button>
+          <button class="apply-btn btns" style="margin-left: 20px;"  onclick= "getMail('${job.companyname}','${job.title}','${job.yoe}','${job.requirements}','${job.worktype}','${job.emptype}','${job.empbenefits}')"> Refer </button>  
       </div>`;
       });
 

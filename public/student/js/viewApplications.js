@@ -4,7 +4,7 @@ let usersContainer = document.getElementById("jobs");
 //const base64 = require('base64topdf');
 
 
-
+console.log(localStorage.getItem('studentid'),localStorage.getItem('token'))
 window.onload=async()=>{
     console.log("onload")
     const result = await fetch(`/studentviewapplications?studentid=${localStorage.getItem('studentid')}`, {
@@ -52,8 +52,8 @@ window.onload=async()=>{
         <p>gender: ${application.gender} </p>
         <p>university Id: ${application.universityid}</p>
         <p>mobile: ${application.phone} </p>
-        <p><strong>Status: </strong> Applied<p>
-        <button class="btn"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download resume"  download="resume.pdf" href="data:application/octet-stream;base64,${application.resume.resumeData.toString('base64')}"> Download resume</a></button><br/>       
+        <p><strong>Status: </strong><span style="text-transform: uppercase; font-weight: bolder;"> Applied</span></p>
+        <button class="btns"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download resume"  download="resume.pdf" href="data:application/octet-stream;base64,${application.resume.resumeData.toString('base64')}"> Download resume</a></button><br/>       
       </div>`;
       });
     const mappedUsers2 = result1.applications.map((application, index) => {
@@ -68,8 +68,8 @@ window.onload=async()=>{
         <p>gender: ${application.gender} </p>
         <p>university Id: ${application.universityid}</p>
         <p>mobile: ${application.phone} </p>
-        <p><strong>Status: </strong> Qualified<p>
-        <button class="btn"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download resume"  download="resume.pdf" href="data:application/octet-stream;base64,${application.resume.resumeData.toString('base64')}"> Download resume</a></button><br/>       
+        <p><strong>Status: </strong> <span style="text-transform: uppercase; font-weight: bolder;">Qualified</span></p>
+        <button class="btns"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download resume"  download="resume.pdf" href="data:application/octet-stream;base64,${application.resume.resumeData.toString('base64')}"> Download resume</a></button><br/>       
       </div>`;
       });
     const mappedUsers3 = result2.applications.map((application, index) => {
@@ -84,8 +84,8 @@ window.onload=async()=>{
         <p>gender: ${application.gender} </p>
         <p>university Id: ${application.universityid}</p>
         <p>mobile: ${application.phone} </p>
-        <p><strong>Status: </strong> Selected<p>
-        <button class="btn"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download resume"  download="resume.pdf" href="data:application/octet-stream;base64,${application.resume.resumeData.toString('base64')}"> Download resume</a></button><br/>       
+        <p><strong>Status: </strong> <span style="text-transform: uppercase; font-weight: bolder;">Selected</span></p>
+        <button class="btns"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download resume"  download="resume.pdf" href="data:application/octet-stream;base64,${application.resume.resumeData.toString('base64')}"> Download resume</a></button><br/>       
       </div>`;
       });
     const mappedUsers4 = result3.applications.map((application, index) => {
@@ -100,8 +100,8 @@ window.onload=async()=>{
         <p>gender: ${application.gender} </p>
         <p>university Id: ${application.universityid}</p>
         <p>mobile: ${application.phone} </p>
-        <p><strong>Status: </strong> Rejected<p>
-        <button class="btn"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download resume"  download="resume.pdf" href="data:application/octet-stream;base64,${application.resume.resumeData.toString('base64')}"> Download resume</a></button><br/>       
+        <p><strong>Status: </strong> <span style="text-transform: uppercase; font-weight: bolder;">Rejected</span></p>
+        <button class="btns"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download resume"  download="resume.pdf" href="data:application/octet-stream;base64,${application.resume.resumeData.toString('base64')}"> Download resume</a></button><br/>       
       </div>`;
       });
       
