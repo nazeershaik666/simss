@@ -19,7 +19,7 @@ const { title } = require("process");
 const { sendJobMails }=require("../emails/account.js")
 const router = new express.Router()
 
-var studentmails = ["vasileveva.ap@gmail.com","alex47nr@gmail.com","naveenchintu470378@gmail.com"]
+var studentmails = ["pokuriparimalla2000@gmail.com","manikantaarumilli1@gmail.com" ,"saikrishnagadde2247@gmail.com","alex47nr@gmail.com","chennushashank509@gmail.com"]
 
 
 var storage = multer.diskStorage({
