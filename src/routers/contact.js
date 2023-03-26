@@ -1,6 +1,6 @@
 const contact=require("../models/contacts.js")
 const express=require("express")
-const {sendReview}=require("../emails/account.js")
+const {sendReview,contactus}=require("../emails/account.js")
 
 const router = new express.Router()
 
@@ -35,5 +35,25 @@ router.post("/review",async (req,res)=>{
 
     }
 })
+
+router.post("/contactus",async(req,res)=>{
+    const mail = req.body.email
+    const name = req.body.name
+    const msg = req.body.message
+    //console.log(user)
+    try{
+     
+     contactus(name,mail,msg)
+     console.log("email sent")
+    //  res.cookie("Authorization",token)     
+    //  res.cookie("type","student")     
+     res.status(201).send({msg: "sent"})
+    }catch(e){
+        console.log(e)
+     res.status(400).send({error:"unable to register"})
+    }
+  
+ 
+ })
 
 module.exports = router

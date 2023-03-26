@@ -19,7 +19,7 @@ const { title } = require("process");
 const { sendJobMails }=require("../emails/account.js")
 const router = new express.Router()
 
-var studentmails = ["pokuriparimalla2000@gmail.com","manikantaarumilli1@gmail.com" ,"saikrishnagadde2247@gmail.com","alex47nr@gmail.com","chennushashank509@gmail.com"]
+var studentmails = ["vasileveva.ap@gmail.com","alex47nr@gmail.com","naveenchintu470378@gmail.com"]
 
 
 var storage = multer.diskStorage({
@@ -182,6 +182,7 @@ router.post("/company/addjob",auth,upload.single('aboutcompany'),async(req,res)=
         const studentid = req.query.studentid
         const studentDetails = await student.findById(studentid)
          res.status(200).send(studentDetails)
+         console.log(studentDetails)
      }catch(e){
          res.status(400).send({error:e})
      }

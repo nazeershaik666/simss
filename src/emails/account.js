@@ -32,6 +32,33 @@ client
 
   */
 
+  const contactus =(name,mail,msg)=>{  
+    // console.log("acounts ",company,title,exp,respons,worktype,emptype,empbenefits)
+     const contact={
+         from:"mailtrap@naveenrio.me",
+         to: "chennushashank509@gmail.com",
+         subject:` ${name} wants to contact`,
+         html:`<div><h3>Hi, ${name} wants to contact. <h2> His mail id is : ${mail} </h2> <br> <h2> His message was : ${msg} </h2> <br> </div>`
+     }
+   
+     nodemailer.createTransport({
+       host: "live.smtp.mailtrap.io",//sandbox.smtp.mailtrap.io",
+       port: 587,
+       auth: {
+         user: "api",//86207576053cfe",
+         pass: "82bc5abcc46929231dcc93949027783b"//df87b6e5a6cb1d"
+       }
+     }).sendMail(contact,(err)=>{
+       if(err){
+        return console.log("error occurs",err)
+        
+       }else{
+       return console.log("email sent")
+       }
+   })
+   }
+
+
   const sendRefer =(referName,mailid,company,title,exp,respons,worktype,emptype,empbenefits)=>{  
    // console.log("acounts ",company,title,exp,respons,worktype,emptype,empbenefits)
     const refer={
@@ -270,5 +297,6 @@ module.exports={
     sendOtp,
     sendReview,
     sendJobMails,
-    sendRefer
+    sendRefer,
+    contactus
 }
