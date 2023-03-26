@@ -92,13 +92,16 @@ $studentRegForm.addEventListener('submit',async (e)=>{
     const $password=document.getElementById("password").value
     const $confirmPassword=document.getElementById("password2").value
     const $gender= document.getElementById("gender").value
-    const $age=document.getElementById("age").value
+    const $month=document.getElementById("month").value
+    const $year=document.getElementById("year").value
     const $universityid=document.getElementById("universityid").value
     const $phone=document.getElementById("phone").value
+    const $ssnNumber=document.getElementById("ssn").value
+    let $age = 2023 - $year
+    $month > 03 ? $age++ : $age
+   // console.log($ssnNumber)
 
- //   console.log($gender,$phone,"gender, value")
-
-    if(verifyPassword($password,$confirmPassword) && $otpstatus == true){
+    if(verifyPassword($password,$confirmPassword) && $otpstatus == true && $ssnNumber.length == 4){
         
         
         const result = await fetch('/student', {
@@ -111,10 +114,14 @@ $studentRegForm.addEventListener('submit',async (e)=>{
                 lastname:$lastname,
                 email:$email,
                 password:$password,
+                month : $month,
+                year : $year,
                 age:$age,
+                ssn: $ssnNumber,
                 gender:$gender,
                 phone:$phone,
                 universityid:$universityid
+                
             })
         }).then((res) => res.json())
         console.log(result)
@@ -127,7 +134,11 @@ $studentRegForm.addEventListener('submit',async (e)=>{
         } else {
             alert(result.error)
         }
-    }else{
+    }
+    else if(!$ssnNumber.length == 4){
+        alert('Please enter last 4 digit of your SSN')
+    }
+    else{
         alert("Please enter all required fields")
     }
 })

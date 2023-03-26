@@ -18,7 +18,7 @@ body {
   background: #efefef;
   display: flex;
   justify-content: center;
-  background-image: url("../assets/img/about-bg.jpeg");
+  background-image: url("../assets/img/about-bg.jpg");
   margin: 0;
   background-size: cover;
   opacity: unset;

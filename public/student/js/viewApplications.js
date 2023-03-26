@@ -47,7 +47,7 @@ window.onload=async()=>{
         <p>Last Name: ${application.lastname}</p>
         <p> Applied Company: ${result.newResults[index].companyname}</p>
         <p>Applied job Title: ${result.newResults[index].title}</p>
-        <p>Email: ${application.email} </p>
+        <p>Email: <a href="mailto:${application.email}">${application.email}</a> </p>
         <p>age: ${application.age} years</p>
         <p>gender: ${application.gender} </p>
         <p>university Id: ${application.universityid}</p>

@@ -21,7 +21,9 @@ window.onload=async()=>{
         <p>First name: ${result.firstname} </p>
         <p>Last Name: ${result.lastname}</p>
         <p>Email: ${result.email} </p>
-        <p>age: ${result.age} years</p>
+        <p>month: ${result.month} </p>
+        <p>Year: ${result.year} </p>
+        <p>SSN: ${result.ssn} </p>
         <p>gender: ${result.gender} </p>
         <p>university Id: ${result.universityid}</p>
         <p>mobile: ${result.phone} </p>

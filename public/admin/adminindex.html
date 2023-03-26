@@ -7,6 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="./js/authcheck.js"></script>
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/f52c3b31f3.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <header id="home">
@@ -18,14 +20,14 @@
           <ul>
             <li><a class="current" href="#">Home</a></li>
             <li><a href="profile.html">Profile</a></li>
-            <li><a href="https://app.drift.com/conversations">Messages</a></li>
+            <li><a href="https://app.drift.com/conversations" target="_blank">Messages</a></li>
             <li><a class="logout-btn" href="#">Logout</a></li>
           </ul>
         </div>
       </nav>
-    </header>
+    
     <div class="container py3">
-      <h1 id="welcome" class="name-welcome">welcome {{name}}</h1>
+      <h1 id="welcome"  class="name-welcome"> welcome {{name}}</h1>
       <div class="boxes py6">
         <div class="totalapplied">
          <h2 id="totalstudentscount">0</h2>
@@ -40,8 +42,22 @@
           <h3>Total No Of Jobs</h3>
         </div>
       </div>
-    </div> 
-
+      
+      <div>
+  
+    <div id="contain" style=" background-color: #444;">  </div> 
+    </div>
+    </div>
+  </header>
+  <footer class="footer bg-dark" style="margin-top: 0px; background:#444;">
+    <div class="social">
+        <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
+        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="#"><i class="fab fa-youtube fa-2x"></i></a>
+        <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+    </div>
+    <p>copyright &copy 2023 - SIMS</p>
+</footer>
     <script src="./js/adminindex.js"></script>
     <script src="./js/authcheck.js"></script>
 
