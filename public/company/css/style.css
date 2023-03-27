@@ -134,6 +134,33 @@ p{
     color: #f7c08a;
 }
 
+/* footer */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 150px;
+    margin-top: 50px;
+}
+
+.footer .social a{
+    margin-right: 20px;
+    color: #ec5c3f;
+}
+
+.footer .social a:hover{
+    color: #fff;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+}
+.boxes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .boxes{
     display: flex;
     flex-direction: row;
@@ -144,36 +171,51 @@ p{
 .boxes .totaljobs{
     height: 20rem;
     width: 20rem;
-    background: rgb(142, 236, 135);
-    color: #fff;
+    background: #e7e7e7;
+    opacity: 90%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    color: #000000;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
+    transition: 1s;
 }
-
+.boxes .totaljobs:hover{
+    transform: scale(1.2);
+}
 .boxes .totalapplied{
     height: 20rem;
     width: 20rem;
-    background: rgb(198, 112, 112);
-    color: #fff;
+    background: #e7e7e7;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    color: #000000;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
+    transition: 1s;
+}
+.boxes .totalapplied:hover{
+    transform: scale(1.2);
 }
 .boxes .totalshortlisted{
     height: 20rem;
     width: 20rem;
-    background: rgb(198, 185, 90);
-    color: #fff;
+    background: #e7e7e7;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    color: #000000;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
+    transition: 1s;
+}
+.boxes .totalshortlisted:hover{
+    transform: scale(1.2);
 }
 
 .name-welcome{
@@ -184,21 +226,28 @@ p{
     display: grid;
     grid-template-columns: auto auto auto auto;
 }
-
- .job{
+.job{
+    /* grid-area: job;
+    
+    */
     background: #cfcfcf;
     color: #494949;
     display: float;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
+    /* width: 50%;  */
     padding: 2rem;
-    margin: 20px;
-    border-radius: 8px;
     margin-top: 20px;
     margin-bottom: 10px;
-
+    border-radius: 8px;
+    flex-grow:0.5;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    box-shadow: rgba(0, 0, 0, 0) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+    transition: 1s;
+}
+
+.job:hover{
+
+    transform: scale(1.1);
+
 }
  .btn{
     padding:10px;
@@ -207,6 +256,37 @@ p{
     margin-bottom: 10px;
     border-radius: 8px;
 }
+.btns{
+    display: inline-block;
+    font-size: 12px;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    border: 0px;
+    font-weight: 800;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btns:hover{
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+.btns:active {
+    transform: scale(0.95);
+  }
 .totaljobs{
     cursor: pointer;
 }
@@ -244,6 +324,54 @@ p{
 }
 .searchbox:hover, .searchbox:focus {
     border: 1.5px solid black;
-    background-color: #4d4d4dfd;
+    background-color: #646464;
     color: white;
   }
+
+.searchbutton{
+    margin: 18px;
+    padding: 20px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    border: 0px;
+    font-weight: 1000;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.searchbutton:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .searchbutton:active {
+    transform: scale(0.95);
+  }
+  #job-body{
+    background-image: url("/assets/bg-pic.jpg");
+    margin: 0;
+    opacity: unset;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #home {
+    background-image: url("/assets/img/GDP.jpg");
+    margin: 0;
+    background-size: cover;
+    opacity: unset;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    height: 100vh;
+}

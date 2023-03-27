@@ -127,7 +127,9 @@ p{
     background: #333;
     color: #FFF;
     overflow: auto;
-
+    position: fixed;
+    width: 100%;
+    
 }
 
 #navbar a{
@@ -211,16 +213,20 @@ p{
     justify-content: center;
     text-align: center;
     height: 150px;
-    margin-top: 50px;
+    margin-top: 100px !important;
+    position: relative;
+   bottom: 0;
+   width: 100%;
 }
 
 .footer .social a{
     margin-right: 20px;
-    color: #fff;
+    color: #ec5c3f;
 }
 
 .footer .social a:hover{
-    color: #28a745;
+    color: #fff;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
 }
 .box{
     text-align: center;
@@ -237,6 +243,7 @@ p{
 #jobs{
     display: grid;
     grid-template-columns: auto auto auto auto;
+    margin: 10px;
     
 }
 
@@ -340,4 +347,13 @@ p{
   
   .searchbutton:active {
     transform: scale(0.95);
+  }
+  #job-body{
+    background-image: url("../bg-pic.jpg");
+    margin: 0;
+    opacity: unset;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }

@@ -143,7 +143,7 @@ window.onload=async()=>{
         <p>Employee benifits : ${job.empbenefits} </p>
         <button class="btns"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download About company" download="About company.pdf" href="data:application/octet-stream;base64,${job.aboutcompany.companyData.toString('base64')}"> Download About Company </a></button><br/>
           <button class="apply-btn btns"  onclick="window.location.href='applypage.html?jobid=${job._id}'" type="submit" value="Submit" > Apply </button>
-          <button class="apply-btn btns" style="margin-left: 20px;"  onclick= "getMail('${job.companyname}','${job.title}','${job.yoe}','${job.requirements}','${job.worktype}','${job.emptype}','${job.empbenefits}')"> Refer </button>  
+          <button class="apply-btn btns" style="margin-left: 20px;"  onclick= "getMail('${job.companyname}','${job.title}','${job.yoe}','${job.requirements}','${job.worktype}','${job.emptype}','${job.empbenefits}')"> Share </button>  
       </div>`;
       });
 

@@ -204,25 +204,26 @@ img {
     width: 3rem;
     background-color: #ffbc00;
     display: block;
-    margin: 0 auto 1rem auto; }
+    margin: 0 auto 1rem auto; 
+}
 
 #home {
-    background-image: url("../assets/img/GDP.jpg");
-    margin: 0;
-    background-size: cover;
-    opacity: unset;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    height: 100vh;
-}
+        background-image: url("/assets/img/GDP.jpg");
+        margin: 0;
+        background-size: cover;
+        opacity: unset;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
 #about-bg{
     background-image: url("../assets/img/about-bg.jpg");
     margin: 0;
-    background-size: cover;
     opacity: unset;
-    
+    height: 100%;
+    background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
+    background-size: cover;
     z-index: -2;
 }
 

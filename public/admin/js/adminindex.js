@@ -50,7 +50,7 @@ window.onload=async()=>{
 
      var pie = new ej.charts.AccumulationChart({
         // Creating Title
-        title: "Students , Companies & Jobs Statistics",
+        title: "Applicants , Companies & Jobs Statistics",
         titleStyle: {
             fontFamily: "Arial",
             fontStyle: 'italic',
@@ -72,7 +72,7 @@ window.onload=async()=>{
         series: [
             {
                 dataSource: [
-                    { 'x': 'Students', y: result.studentsCount },
+                    { 'x': 'Applicants', y: result.studentsCount },
                     { 'x': 'Companies', y: result2.companiesCount },
                     { 'x': 'Jobs', y: result1.jobsCount }
                     

@@ -33,7 +33,7 @@ window.onload=async()=>{
         <p>Gender: ${student.gender}</p>
         <p> University Id: ${student.universityid}</p>
         <p>phone: ${student.phone}</p>
-        <button class="btn" id="blockbutton"> <a href="studentblock.html?companyid=${student._id}&value=${!student.block}"> ${blockValue}</a></button><br/>       
+        <button class="btns" id="blockbutton"> <a href="studentblock.html?companyid=${student._id}&value=${!student.block}"> ${blockValue}</a></button><br/>       
 
       </div>`;
       });

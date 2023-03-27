@@ -31,7 +31,7 @@ window.onload=async()=>{
         <p>Email: ${company.email}</p>
         <p>company id: ${company.companyid} </p>
         <p>phone: ${company.phone}</p>
-        <button class="btn" id="blockbutton"> <a href="block.html?companyid=${company._id}&value=${!company.block}"> ${blockValue}</a></button><br/>       
+        <button class="btns" id="blockbutton"> <a href="block.html?companyid=${company._id}&value=${!company.block}"> ${blockValue}</a></button><br/>       
       </div>`;
       });
 

@@ -531,16 +531,19 @@ p{
     justify-content: center;
     text-align: center;
     height: 150px;
-    margin-top: 50px;
+    position: relative;
+   bottom: 0;
+   width: 100%;
 }
 
 .footer .social a{
     margin-right: 20px;
-    color: #fff;
+    color: #ec5c3f;
 }
 
 .footer .social a:hover{
-    color: #28a745;
+    color: #fff;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
 }
 .box{
     text-align: center;
@@ -672,4 +675,13 @@ p{
     max-width: 700px;
     border: #222121 2px solid;
     border-radius: 8px;
+  }
+  #job-body{
+    background-image: url("./bg-pic.jpg");
+    margin: 0;
+    opacity: unset;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }

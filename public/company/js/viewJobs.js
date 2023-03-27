@@ -28,7 +28,7 @@ window.onload=async()=>{
         <p>Work Type: ${job.worktype} </p>
         <p>Employee type: ${job.emptype} </p>
         <p>Employee benifits: ${job.empbenefits} </p>
-        <button class="btn"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download About company" download="Aboutcompany.pdf" href="data:application/octet-stream;base64,${job.aboutcompany.companyData.toString('base64')}">  About Company</a></button><br />
+        <button class="btns"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download About company" download="Aboutcompany.pdf" href="data:application/octet-stream;base64,${job.aboutcompany.companyData.toString('base64')}">  About Company</a></button><br />
       </div>`;
       });
 
