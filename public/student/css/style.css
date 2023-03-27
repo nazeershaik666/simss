@@ -349,7 +349,7 @@ p{
     transform: scale(0.95);
   }
   #job-body{
-    background-image: url("../bg-pic.jpg");
+    background-image: url("/assets/bg-pic.jpg");
     margin: 0;
     opacity: unset;
     height: 100%;
