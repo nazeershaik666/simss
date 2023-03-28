@@ -33,7 +33,7 @@ const userSchema = mongoose.Schema({
         trim:true,
             
     },
-    $month:{
+    month:{
         type:Number,
         default:1,
     },
