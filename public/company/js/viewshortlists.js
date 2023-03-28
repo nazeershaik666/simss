@@ -19,7 +19,7 @@ window.onload=async()=>{
         return `<div class="job">
         <h1>Application details</h1>
         <p>Student Name: ${application.firstname} </p>
-        <p>Email: ${application.email}</p> 
+        <p>Email: <a href="mailto:${application.email}" target="_blank">${application.email}</a></p> 
         <p>Age: ${application.age}</p>
         <p>Phone: ${application.phone}</p>
         <p>Gender: ${application.gender}</p>

@@ -97,7 +97,7 @@ $studentRegForm.addEventListener('submit',async (e)=>{
     const $universityid=document.getElementById("universityid").value
     const $phone=document.getElementById("phone").value
     const $ssnNumber=document.getElementById("ssn").value
-    let $age = 2023 - $year
+    let $age = 2023 - $year -1
     $month > 03 ? $age++ : $age
    // console.log($ssnNumber)
 

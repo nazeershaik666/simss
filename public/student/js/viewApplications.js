@@ -4,7 +4,7 @@ let usersContainer = document.getElementById("jobs");
 //const base64 = require('base64topdf');
 
 
-console.log(localStorage.getItem('studentid'),localStorage.getItem('token'))
+//console.log(localStorage.getItem('studentid'),localStorage.getItem('token'))
 window.onload=async()=>{
     console.log("onload")
     const result = await fetch(`/studentviewapplications?studentid=${localStorage.getItem('studentid')}`, {
@@ -47,7 +47,7 @@ window.onload=async()=>{
         <p>Last Name: ${application.lastname}</p>
         <p> Applied Company: ${result.newResults[index].companyname}</p>
         <p>Applied job Title: ${result.newResults[index].title}</p>
-        <p>Email: <a href="mailto:${application.email}">${application.email}</a> </p>
+        <p>Email: <a href="mailto:${application.email}" target="_blank">${application.email}</a> </p>
         <p>age: ${application.age} years</p>
         <p>gender: ${application.gender} </p>
         <p>university Id: ${application.universityid}</p>
@@ -63,7 +63,7 @@ window.onload=async()=>{
         <p>Last Name: ${application.lastname}</p>
         <p> Applied Company: ${result1.newResults[index].companyname}</p>
         <p>Applied job Title: ${result1.newResults[index].title}</p>
-        <p>Email: ${application.email} </p>
+        <p>Email: <a href="mailto:${application.email}" target="_blank">${application.email}</a></p> 
         <p>age: ${application.age} years</p>
         <p>gender: ${application.gender} </p>
         <p>university Id: ${application.universityid}</p>
@@ -79,7 +79,7 @@ window.onload=async()=>{
         <p>Last Name: ${application.lastname}</p>
         <p> Applied Company: ${result2.newResults[index].companyname}</p>
         <p>Applied job Title: ${result2.newResults[index].title}</p>
-        <p>Email: ${application.email} </p>
+        <p>Email: <a href="mailto:${application.email}" target="_blank">${application.email}</a></p> 
         <p>age: ${application.age} years</p>
         <p>gender: ${application.gender} </p>
         <p>university Id: ${application.universityid}</p>
@@ -95,7 +95,7 @@ window.onload=async()=>{
         <p>Last Name: ${application.lastname}</p>
         <p> Applied Company: ${result3.newResults[index].companyname}</p>
         <p>Applied job Title: ${result3.newResults[index].title}</p>
-        <p>Email: ${application.email} </p>
+        <p>Email: <a href="mailto:${application.email}" target="_blank">${application.email}</a></p> 
         <p>age: ${application.age} years</p>
         <p>gender: ${application.gender} </p>
         <p>university Id: ${application.universityid}</p>
@@ -105,13 +105,18 @@ window.onload=async()=>{
       </div>`;
       });
       
+      console.log(mappedUsers1.length + mappedUsers2.length + mappedUsers3.length + mappedUsers4.length)
     
       if(mappedUsers1.length >0 || mappedUsers2.length>0 || mappedUsers3.length>0 || mappedUsers4.length>0){
         usersContainer.innerHTML = [...mappedUsers1,...mappedUsers2,...mappedUsers3,...mappedUsers4]
+        if((mappedUsers1.length + mappedUsers2.length + mappedUsers3.length + mappedUsers4.length) < 3){
+         const  ab = document.getElementById("footer")
+          ab.classList.add("foot")
+        }
     }
       else{
         alert("Applications Empty") 
-        //    usersContainer.innerHTML = "<h1>There are no pending applications to review, Please comeback later!</h1>"
+           usersContainer.innerHTML = "<h1>There are no pending applications to review, Please comeback later!</h1>"
            location.href="/student/studentindex.html"
       }
 

@@ -28,7 +28,7 @@ window.onload=async()=>{
         return `<div class="job">
         <h1>Company Details</h1>
         <p>Company Name: ${company.firstname} ${company.lastname} </p>
-        <p>Email: ${company.email}</p>
+        <p>Email: <a href="mailto:${company.email}" target="_blank">${company.email}</a></p>
         <p>company id: ${company.companyid} </p>
         <p>phone: ${company.phone}</p>
         <button class="btns" id="blockbutton"> <a href="block.html?companyid=${company._id}&value=${!company.block}"> ${blockValue}</a></button><br/>       
@@ -37,6 +37,11 @@ window.onload=async()=>{
 
       if(mappedUsers.length>0){
         usersContainer.innerHTML = mappedUsers
+        if(mappedUsers.length < 3){
+          const  ab = document.getElementById("footer")
+          ab.classList.add("foot")
+        }
+
     }
       else{
         alert("Applications Empty") 

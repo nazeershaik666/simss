@@ -6,12 +6,13 @@ const $firstname=document.getElementById("first-name")
 const $lastname=document.getElementById("last-name")
 const $email=document.getElementById("email")
 const $gender= document.getElementById("gender")
-const $age=document.getElementById("age")
 const $universityid=document.getElementById("universityid")
 const $phone=document.getElementById("phone")
 const $ssnNumber = document.getElementById("ssn")
 const $month=document.getElementById("month")
 const $year=document.getElementById("year")
+
+
 
 window.onload=async()=>{
     console.log("onload")

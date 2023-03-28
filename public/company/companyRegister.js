@@ -92,7 +92,9 @@ $companyRegForm.addEventListener('submit',async (e)=>{
     const $password=document.getElementById("password").value
     const $confirmPassword=document.getElementById("password2").value
     const $gender= document.getElementById("gender").value
-    const $age=document.getElementById("age").value
+    const $month = document.getElementById("month").value
+    const $year = document.getElementById("year").value
+    const $age = $month > 04 ? 2023 - $year  : 2023 - $year
     const $companyid=document.getElementById("companyid").value
     const $phone=document.getElementById("phone").value
 
@@ -107,6 +109,8 @@ $companyRegForm.addEventListener('submit',async (e)=>{
                 lastname:$lastname,
                 email:$email,
                 password:$password,
+                month : $month,
+                year: $year,
                 age:$age,
                 gender:$gender,
                 phone:$phone,

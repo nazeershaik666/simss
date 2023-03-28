@@ -127,7 +127,6 @@ p{
     background: #333;
     color: #FFF;
     overflow: auto;
-    position: fixed;
     width: 100%;
     
 }
@@ -215,8 +214,8 @@ p{
     height: 150px;
     margin-top: 100px !important;
     position: relative;
-   bottom: 0;
-   width: 100%;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer .social a{
@@ -227,6 +226,9 @@ p{
 .footer .social a:hover{
     color: #fff;
     background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+}
+.foot{
+margin-top: 250px !important;
 }
 .box{
     text-align: center;

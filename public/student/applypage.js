@@ -6,12 +6,15 @@ $studentLoginForm.addEventListener('submit',async (e)=>{
     const $email=document.getElementById("email").value
     const $firstname=document.getElementById("first-name").value
     const $lastname=document.getElementById("last-name").value
-    const $age=document.getElementById("age").value
+    const $month=document.getElementById("month").value
+    const $year = document.getElementById("year").value
     const $universityid=document.getElementById("universityid").value
     const $phone=document.getElementById("phone").value
     const $gender = document.getElementById("gender").value
     const $resume=document.querySelector('#resume')
     const $studentid=localStorage.getItem('studentid')
+    let $age= 2023 - $year - 1
+    $month > 04 ? $age++ : $age
     const url = window.location.href
     const jobid = url.split('=')
    // console.log(jobid,url)
@@ -19,6 +22,8 @@ $studentLoginForm.addEventListener('submit',async (e)=>{
     formData.append("firstname",$firstname)
     formData.append("email",$email)
     formData.append("lastname",$lastname)
+    formData.append("month",$month)
+    formData.append("year",$year)
     formData.append("age",$age)
     formData.append("universityid",$universityid)
     formData.append("phone",$phone)

@@ -28,8 +28,9 @@ window.onload=async()=>{
         return `<div class="job">
         <h1>Student Details</h1>
         <p>Student Name: ${student.firstname} ${student.lastname} </p>
-        <p>Email: ${student.email}</p>
-        <p>Age:  ${student.age} years </p>
+        <p>Email: <a href="mailto:${student.email}" target="_blank">${student.email}</a></p>
+        <p>Month: ${student.month} </p>
+        <p>Year:  ${student.year} </p>
         <p>Gender: ${student.gender}</p>
         <p> University Id: ${student.universityid}</p>
         <p>phone: ${student.phone}</p>
@@ -40,6 +41,10 @@ window.onload=async()=>{
 
       if(mappedUsers.length>0){
         usersContainer.innerHTML = mappedUsers
+        if(mappedUsers.length < 3){
+          const  ab = document.getElementById("footer")
+          ab.classList.add("foot")
+        }
     }
       else{
         alert("Applications Empty") 
