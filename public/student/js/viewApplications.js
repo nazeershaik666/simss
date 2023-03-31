@@ -48,7 +48,7 @@ window.onload=async()=>{
         <p> Applied Company: ${result.newResults[index].companyname}</p>
         <p>Applied job Title: ${result.newResults[index].title}</p>
         <p>Email: <a href="mailto:${application.email}" target="_blank">${application.email}</a> </p>
-        <p>age: ${application.age} years</p>
+        <p>DOB (MM/Year) : ${application.month} / ${application.year} </p>
         <p>gender: ${application.gender} </p>
         <p>university Id: ${application.universityid}</p>
         <p>mobile: ${application.phone} </p>
@@ -64,7 +64,7 @@ window.onload=async()=>{
         <p> Applied Company: ${result1.newResults[index].companyname}</p>
         <p>Applied job Title: ${result1.newResults[index].title}</p>
         <p>Email: <a href="mailto:${application.email}" target="_blank">${application.email}</a></p> 
-        <p>age: ${application.age} years</p>
+        <p>DOB (MM/Year) : ${application.month} / ${application.year} </p>
         <p>gender: ${application.gender} </p>
         <p>university Id: ${application.universityid}</p>
         <p>mobile: ${application.phone} </p>
@@ -80,7 +80,7 @@ window.onload=async()=>{
         <p> Applied Company: ${result2.newResults[index].companyname}</p>
         <p>Applied job Title: ${result2.newResults[index].title}</p>
         <p>Email: <a href="mailto:${application.email}" target="_blank">${application.email}</a></p> 
-        <p>age: ${application.age} years</p>
+        <p>DOB (MM/Year) : ${application.month} / ${application.year} </p>
         <p>gender: ${application.gender} </p>
         <p>university Id: ${application.universityid}</p>
         <p>mobile: ${application.phone} </p>
@@ -96,7 +96,7 @@ window.onload=async()=>{
         <p> Applied Company: ${result3.newResults[index].companyname}</p>
         <p>Applied job Title: ${result3.newResults[index].title}</p>
         <p>Email: <a href="mailto:${application.email}" target="_blank">${application.email}</a></p> 
-        <p>age: ${application.age} years</p>
+        <p>DOB (MM/Year) : ${application.month} / ${application.year} </p>
         <p>gender: ${application.gender} </p>
         <p>university Id: ${application.universityid}</p>
         <p>mobile: ${application.phone} </p>

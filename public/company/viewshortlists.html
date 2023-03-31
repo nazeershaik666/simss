@@ -10,12 +10,35 @@
     <script src="./js/authcheck.js"></script>
 </head>
 <body id="job-body" >
-    <div class="container">
+    <nav id="navbar">
+        <div class="container1">
+          <center>
+          <h1 class="logo">
+            <a href="../index.html">Student Internship Management System</a>
+          </h1>
+        </center>
+        </div>
+      </nav>
+    <div class="container" style="padding-top: 20px">
+        <div  style="overflow: visible;"
+        class="topnav">
+         <input class="searchbox" type="text" id="searchbox" placeholder="Search...">
+         <input class="searchbox" type="text" id="studentName" placeholder="Student Name">
+         <input class="searchbox" type="text" id="mail" placeholder="Enter Mail Id">
+        
+      <!--  <select name="filtertype" style="padding: 7px;   border-radius: 8px;background-color: #fff" id="filtertype">
+           <option value="1">Company Name</option>
+           <option value="2">Job Title</option>
+           <option value="3">Experience Level</option>
+           <option value="4">Work Type</option>
+           </select> -->
+         <button style="padding: 8px 15px; border-radius: 8px;background-color: #fff" class="searchbutton">Search</button>
+       </div>
         <div id="jobs">
           
         </div> 
       </div>
-      <footer class="footer bg-dark" style="margin-top: 0px; background:#444;">
+      <footer class="footer bg-dark" id="footer" style="margin-top: 0px; background:#444;">
         <div class="social">
           <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook fa-2x"></i></a>
               <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>

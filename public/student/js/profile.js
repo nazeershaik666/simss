@@ -21,8 +21,7 @@ window.onload=async()=>{
         <p>First name: ${result.firstname} </p>
         <p>Last Name: ${result.lastname}</p>
         <p>Email: <a href="mailto:${result.email}" target="_blank">${result.email}</a></p> 
-        <p>Month: ${result.month} </p>
-        <p>Year: ${result.year} </p>
+        <p>DOB (MM/Year) : ${result.month} / ${result.year} </p>
         <p>SSN: ${result.ssn} </p>
         <p>gender: ${result.gender} </p>
         <p>university Id: ${result.universityid}</p>

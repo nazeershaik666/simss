@@ -289,9 +289,14 @@ p{
     margin: 0;
     background-size: cover;
     opacity: unset;
-    overflow: hidden;
+    overflow: scroll;
     background-repeat: no-repeat;
     height: 100vh;
+    overflow-x: hidden;
+}
+::placeholder{
+    color: #000000;
+    opacity: 0.5;
 }
 /* utilities  */
 .container{
@@ -545,9 +550,10 @@ p{
     color: #fff;
     background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
 }
+
 .foot{
-    margin-top: 430px !important;
-    }
+        margin-top: 200px !important;
+}
 .box{
     text-align: center;
     float:left;
@@ -603,20 +609,21 @@ p{
 #profiles{
     display: flex;
     flex-direction: column;
+    opacity: 0.9;
     
 }
 
 .profile {
-    background: rgb(113, 156, 219);
-    color: #fff;
+    background: rgb(224, 255, 234);
+    color: #0a0a0a;
     display: float;
     /* flex-direction: row; */
     align-content: center;
     justify-content: center;
-    padding: 3rem;
+    padding: 2rem;
     /* text-align: center; */
-    margin-top: 20px;
-    border-radius: 5px;
+    margin-top: 40px;
+    border-radius: 8px;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -687,4 +694,14 @@ p{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+  #profile-body{
+    background-image: url("/assets/img/blur.jpg");
+    margin: 0;
+    opacity: unset;
+    height: 100%;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    overflow: visible;
   }

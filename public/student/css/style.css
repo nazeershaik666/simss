@@ -30,9 +30,11 @@ p{
     margin: 0;
     background-size: cover;
     opacity: unset;
-    overflow: hidden;
+    overflow-x: visible;
+    overflow-y: scroll;
     background-repeat: no-repeat;
     height: 100vh;
+    
 }
 /* utilities  */
 .container{
@@ -286,20 +288,21 @@ margin-top: 250px !important;
 #profiles{
     display: flex;
     flex-direction: column;
+    opacity: 0.9;
     
 }
 
 .profile {
-    background: rgb(113, 156, 219);
-    color: #fff;
+    background: rgb(224, 255, 234);
+    color: #0a0a0a;
     display: float;
     /* flex-direction: row; */
     align-content: center;
     justify-content: center;
-    padding: 3rem;
+    padding: 2rem;
     /* text-align: center; */
-    margin-top: 20px;
-    border-radius: 5px;
+    margin-top: 40px;
+    border-radius: 8px;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -356,6 +359,16 @@ margin-top: 250px !important;
     opacity: unset;
     height: 100%;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
+  }
+  #profile-body{
+    background-image: url("/assets/img/blur.jpg");
+    margin: 0;
+    opacity: unset;
+    height: 100%;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    overflow: visible;
   }

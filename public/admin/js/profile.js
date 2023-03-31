@@ -18,18 +18,17 @@ window.onload=async()=>{
     
      
     const mappedUsers = `<div class="profile">
-        <p>First name: ${result.firstname} </p>
-        <p>Last Name: ${result.lastname}</p>
-        <p>Email: ${result.email} </p>
-        <p>Month: ${result.month} </p>
-        <p>Year: ${result.year} </p>
-        <p>gender: ${result.gender} </p>
-        <p>mobile: ${result.phone} </p>
+        <p>First Name    : ${result.firstname} </p>
+        <p>Last Name     : ${result.lastname}</p>
+        <p>Email         : ${result.email} </p>
+        <p>DOB (MM/Year) : ${result.month} / ${result.year} </p>
+        <p>Gender        : ${result.gender} </p>
+        <p>Mobile        : ${result.phone} </p>
         
-        <button class="btn"> <a href="editprofile.html"> Edit Profile</a></button><br/>       
+        <button class="btns"> <a href="editprofile.html"> Edit Profile</a></button><br/>       
       </div>`
     
-    console.log(mappedUsers)
+   // console.log(mappedUsers)
      
       usersContainer.innerHTML = mappedUsers
 }

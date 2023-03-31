@@ -7,6 +7,12 @@
     <title>Applicants</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="./js/authcheck.js"></script>
+    <style>
+      ::placeholder {
+          color: rgb(0, 0, 0);
+          opacity: 0.5;
+        }
+    </style>
   </head> 
   <body id="job-body">
     <nav id="navbar">
@@ -18,7 +24,22 @@
       </center>
       </div>
     </nav>
-    <div class="container"> 
+    <div class="container" style = "padding-top: 20px;"> 
+      <div  style="overflow: visible;"
+      class="topnav">
+       <input class="searchbox" type="text" id="searchbox"  placeholder="Search...">
+       <input class="searchbox" type="text" id="studentName" placeholder="Student name">
+       <input class="searchbox" type="text" id="email" placeholder="Student Mail ID">
+       <input class="searchbox" type="text" id="universityId" placeholder="University Id">
+       <input class="searchbox" type="text" id="ssn" placeholder="Enter SSN">
+    <!--  <select name="filtertype" style="padding: 7px;   border-radius: 8px;background-color: #fff" id="filtertype">
+         <option value="1">Company Name</option>
+         <option value="2">Job Title</option>
+         <option value="3">Experience Level</option>
+         <option value="4">Work Type</option>
+         </select> -->
+       <button style="padding: 8px 15px; border-radius: 8px;background-color: #fff" class="searchbutton">Search</button>
+     </div>
       <div id="jobs">
         
       </div>
