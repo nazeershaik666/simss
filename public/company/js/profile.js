@@ -18,13 +18,13 @@ window.onload=async()=>{
     
      
     const mappedUsers = `<div class="profile">
-        <p>First name: ${result.firstname} </p>
+        <p>First Name: ${result.firstname} </p>
         <p>Last Name: ${result.lastname}</p>
         <p>Email: <a href="mailto:${result.email}" target="_blank">${result.email}</a></p>
         <p>DOB (MM/Year) : ${result.month} / ${result.year} </p>
-        <p>gender: ${result.gender} </p>
+        <p>Gender: ${result.gender} </p>
         <p>Company Id: ${result.companyid}</p>
-        <p>mobile: ${result.phone} </p>
+        <p>Mobile: ${result.phone} </p>
         
         <button class="btns"> <a href="editprofile.html"> Edit Profile</a></button><br/>       
       </div>`
