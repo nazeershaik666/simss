@@ -3,11 +3,32 @@ const token=localStorage.getItem('token')
 const jobbody=document.getElementById('job-body')
 const search=document.getElementById('searchbox')
 const $searchbutton=document.querySelector('.searchbutton')
+const $logoutbtn=document.querySelector('.logout-btn')
 let usersContainer = document.getElementById("jobs");
 
-// $applybtn.addEventListener('click',(e)=>{
-//     location.href='/student/applypage.html'
-// })
+
+
+$logoutbtn.addEventListener('click',async(e)=>{
+
+  const confirmLogout=confirm("Are you sure you want to logout?");
+  if(confirmLogout){
+  const result = await fetch('/admin/logout', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization':'Bearer '+token
+      },
+      body: JSON.stringify({
+         
+      })
+  }).then((res)=>{
+      localStorage.clear()
+      location.href="/"
+     // alert("success")
+     return res.json()
+  })
+}   
+})
 
 
 $searchbutton.addEventListener('click',async (e)=>{
@@ -17,7 +38,6 @@ $searchbutton.addEventListener('click',async (e)=>{
   const jobType = document.getElementById('jobType').value
   const salary = document.getElementById('salary').value
   const searchterm = search.value.toLowerCase();
-  //console.log(searchterm);
   const result = await fetch('/adminjobs', {
     method: 'POST',
     headers: {
@@ -28,89 +48,42 @@ $searchbutton.addEventListener('click',async (e)=>{
  
 })
   }).then((res) => res.json())
-
-
-
-
-
-
-
-
-  //console.log(result);
-  
  
-   // console.log(document.getElementById("filtertype").value)
-  // const filtertype = document.getElementById("filtertype").value
-  // console.log(job)
- // return filtertype == 1 ? job.companyname.toLowerCase().includes(searchterm) : filtertype == 2 ? job.title.toLowerCase().includes(searchterm) : filtertype == 3 ? job.yoe.toString().includes(searchterm) : job.worktype.toLowerCase().includes(searchterm)
+var filter = {
  
- 
+};
 
- 
- const filterTitleFunction = (job)=>{
-  // console.log(document.getElementById("filtertype").value)
- // const filtertype = document.getElementById("filtertype").value
- // console.log(job)
-// return filtertype == 1 ? job.companyname.toLowerCase().includes(searchterm) : filtertype == 2 ? job.title.toLowerCase().includes(searchterm) : filtertype == 3 ? job.yoe.toString().includes(searchterm) : job.worktype.toLowerCase().includes(searchterm)
-if(searchterm) {
- return  parseInt(job.yoe) == parseInt(searchterm) || job.companyname.toLowerCase().includes(searchterm) || job.title.toLowerCase().includes(searchterm) || job.worktype.toLowerCase().includes(searchterm)// || job.empbenefits.toString().includes(searchterm)
-}
-
-let b = {
-    c1 : job.companyname,
-    c2 : job.title,
-    c3 : job.worktype
-}
-
-console.log(b)
-let flag , a
-let arr = []
-let a1 = companyName , a2 = jobTitle , a3 = Exp , a4 = jobType , a5 = salary
+let a1 = companyName , a2 = jobTitle ,a3 = jobType, a4= Exp , a5 = salary
 if(a1)
- arr.push(a1.toLowerCase())
+filter.companyname = a1
 if(a2)
- arr.push(a2.toLowerCase())
+filter.title = a2
 if(a3)
- arr.push(a3)
+filter.worktype = a3
 if(a4)
- arr.push(a4.toLowerCase())
+filter.yoe = a4
 if(a5)
- arr.push(a5)
+filter.empbenefits= a5
 
+console.log(filter)
 
-a = arr.length     
-for(let i=0; i< a ; i++){
-let c = Object.values(b)
-console.log(c , arr , arr[2] , "c , arr")
-if(c.toString().toLowerCase().includes(arr[i].toString().toLowerCase())){
- flag = true
- console.log(c.toString().toLowerCase().includes(arr[i].toString().toLowerCase()))
-}
-else if(Number(job.yoe) == Number(arr[i])){
-  flag = true
-  console.log(job.yoe, arr[i] , "yoe")
-}
-else if(Number(job.empbenefits) == Number(arr[i])){
-  flag = true
-  console.log(job.empbenefits , arr[i], "empben")
-}
-else{
- flag = false
- break
-    }
+var users = result.filter( function(item) {
+ if(searchterm) {
+   const job = item
+   return  parseInt(job.yoe) == parseInt(searchterm) || job.companyname.toLowerCase().includes(searchterm) || job.title.toLowerCase().includes(searchterm) || job.worktype.toLowerCase().includes(searchterm)|| job.empbenefits.toString().includes(searchterm)
   }
-if(flag == true){
- console.log(b.c1)
- return b.c1
-  }
+ for (var key in filter) {
+   if (item[key].toString().toLowerCase() === undefined || item[key].toString().toLowerCase() != filter[key])
+     return false;
 
+ }
+ return true;
+});
 
-}
- 
- const filteredResult = result.filter(filterTitleFunction)
+console.log(users)
 
  
- const mappedUsers = filteredResult.map((job, index) => {
+ const mappedUsers = users.map((job, index) => {
     return `<div class="job">
     <h1>Job Description</h1>
     <p>Company Name: ${job.companyname} </p>

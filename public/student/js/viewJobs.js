@@ -4,13 +4,37 @@ const jobbody=document.getElementById('job-body')
 const search=document.getElementById('searchbox')
 const $searchbutton=document.querySelector('.searchbutton')
 const studentName = localStorage.getItem("name");
-
+const $logoutbtn=document.querySelector('.logout-btn')
 
 let usersContainer = document.getElementById("jobs");
 
 // $applybtn.addEventListener('click',(e)=>{
 //     location.href='/student/applypage.html'
 // })
+
+$logoutbtn.addEventListener('click',async(e)=>{
+  const confirmLogout=confirm("Are you sure you want to logout?");
+  if(confirmLogout){
+  const result = await fetch('/student/logout', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization':'Bearer '+ localStorage.getItem('token')
+      },
+      body: JSON.stringify({
+         
+      })
+  }).then((res)=>{
+      localStorage.clear()
+      location.href="/"
+     // alert("success")
+ return res.json()
+  })
+  console.log(result)
+}
+})
+
+
 $searchbutton.addEventListener('click',async (e)=>{
   const companyName = document.getElementById('companyName').value
   const jobTitle = document.getElementById('jobTitle').value
@@ -30,77 +54,67 @@ $searchbutton.addEventListener('click',async (e)=>{
 })
   }).then((res) => res.json())
   //console.log(result);
-  
-  const filterTitleFunction = (job)=>{
+   
+  //  console.log(job)
    // console.log(document.getElementById("filtertype").value)
   // const filtertype = document.getElementById("filtertype").value
   // console.log(job)
  // return filtertype == 1 ? job.companyname.toLowerCase().includes(searchterm) : filtertype == 2 ? job.title.toLowerCase().includes(searchterm) : filtertype == 3 ? job.yoe.toString().includes(searchterm) : job.worktype.toLowerCase().includes(searchterm)
- if(searchterm) {
-  return  parseInt(job.yoe) == parseInt(searchterm) || job.companyname.toLowerCase().includes(searchterm) || job.title.toLowerCase().includes(searchterm) || job.worktype.toLowerCase().includes(searchterm)// || job.empbenefits.toString().includes(searchterm)
- }
-  let b = job
- // console.log(b.companyname.toLowerCase().includes(companyName.toLowerCase()))
+
+
+ var filter = {
  
+ };
 
-let flag , a
-let arr = []
-let a1 = companyName , a2 = jobTitle , a3 = Exp , a4 = jobType , a5 = salary
+let a1 = companyName , a2 = jobTitle ,a3 = jobType, a4= Exp , a5 = salary
 if(a1)
- arr.push(a1.toLowerCase())
+ filter.companyname = a1
 if(a2)
- arr.push(a2.toLowerCase())
+ filter.title = a2
 if(a3)
- arr.push(a3)
-else
- a3 = 0
+ filter.worktype = a3
 if(a4)
- arr.push(a4.toLowerCase())
+ filter.yoe = a4
 if(a5)
- arr.push(a5)
-else 
- a5 = 0
+ filter.salary= a5
 
-a = arr.length     
-for(let i=0; i< a ; i++){
-c = Object.values(b)
-if(c.toString().toLowerCase().includes(arr[i].toString().toLowerCase()) || c[4] == a5 || c[2] == a3){
- flag = true
-}
-else{
- flag = false
- break
-    }
-  }
-if(flag == true){
- console.log(b.companyname)
- return b.companyname
-  }
-  }
+console.log(filter)
 
-  
-  
-  const filteredResult = result.filter(filterTitleFunction)
+var users = result.filter( function(item) {
+  if(searchterm) {
+    const job = item
+    return  parseInt(job.yoe) == parseInt(searchterm) || job.companyname.toLowerCase().includes(searchterm) || job.title.toLowerCase().includes(searchterm) || job.worktype.toLowerCase().includes(searchterm) || parseInt(job.salary) == parseInt(searchterm)
+   }
+  for (var key in filter) {
+    if (item[key].toString().toLowerCase() === undefined || item[key].toString().toLowerCase() != filter[key])
+      return false;
 
-  const mappedUsers = filteredResult.map((job, index) => {
+  }
+  return true;
+});
+
+console.log(users)
+
+  const mappedUsers = users.map((job, index) => {
     return `<div class="job">
     <h1>Job Description</h1>
     <p>Company Name: ${job.companyname} </p>
-    <p>Job Title: ${job.title}</p>
+    <p >Job Title : <span style="text-transform: uppercase; font-weight: bolder;">${job.title}</span></p>
     <p>Experience level: ${job.yoe} years</p>
     <p>
       Job Responsibilities:${job.requirements}
     </p>
     <p>Work Type: ${job.worktype} </p>
     <p>Employee type: ${job.emptype} </p>
+    <p>Salary: ${job.salary} </p>
     <p>Employee benifits: ${job.empbenefits} </p>
-    <button class="btn"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download About company" download="About company.pdf" href="data:application/octet-stream;base64,${job.aboutcompany.companyData.toString('base64')}"> Download About Company</a></button><br />
+    <button class="btns"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download About company" download="About company.pdf" href="data:application/octet-stream;base64,${job.aboutcompany.companyData.toString('base64')}"> Download About Company</a></button><br />
       <button class="apply-btn btns"  onclick="window.location.href='applypage.html?jobid=${job._id}'" type="submit" value="Submit" > Apply </button> <br>
       <button class="apply-btn btns"  onclick="window.location.href='applypage.html?jobid=${job._id}'" type="submit" value="Submit" > Refer </button>  
   </div>`;
-  });
+  });  
 
-  console.log(filteredResult)
+  console.log(mappedUsers)
   if(mappedUsers.length>0){
     usersContainer.innerHTML = mappedUsers
 }
@@ -121,7 +135,7 @@ window.onload=async()=>{
            
         })
     }).then((res) => res.json())
-
+    console.log(result)
 
 /*    let a = result.length;
     var companyName = document.getElementById('companyName').value
@@ -140,6 +154,7 @@ window.onload=async()=>{
         </p>
         <p>Work Type : ${job.worktype} </p>
         <p>Employee type : ${job.emptype}</p>
+        <p>Salary: ${job.salary} </p>
         <p>Employee benifits : ${job.empbenefits} </p>
         <button class="btns"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download About company" download="About company.pdf" href="data:application/octet-stream;base64,${job.aboutcompany.companyData.toString('base64')}"> Download About Company </a></button><br/>
           <button class="apply-btn btns"  onclick="window.location.href='applypage.html?jobid=${job._id}'" type="submit" value="Submit" > Apply </button>

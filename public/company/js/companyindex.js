@@ -49,6 +49,8 @@ window.onload=async()=>{
     document.getElementById("totalshortlists").innerHTML=result2.applicationsCount
 }
 $logoutbtn.addEventListener('click',async(e)=>{
+    const confirmLogout=confirm("Are you sure you want to logout?");
+    if(confirmLogout){
     const result = await fetch('/company/logout', {
         method: 'POST',
         headers: {
@@ -65,5 +67,5 @@ $logoutbtn.addEventListener('click',async(e)=>{
         return res.json()
     })
     console.log(result)
-   
+}
 })

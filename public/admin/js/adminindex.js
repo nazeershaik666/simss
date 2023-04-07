@@ -1,5 +1,5 @@
 
-document.getElementById("welcome").innerHTML = "welcomes "+localStorage.getItem("name").toUpperCase()+" you are an Admin!"
+document.getElementById("welcome").innerHTML = "Welcome "+localStorage.getItem("name").toUpperCase()+" you are an Admin!"
  
 const $totaljobs=document.querySelector(".totaljobs")
 const $totalapplied=document.querySelector(".totalapplied")
@@ -52,11 +52,12 @@ window.onload=async()=>{
         // Creating Title
         title: "Applicants , Companies & Jobs Statistics",
         titleStyle: {
-            fontFamily: "Arial",
-            fontStyle: 'italic',
+            fontFamily: "Segoe UI",
+            
             fontWeight: 'regular',
             color: "#E27F2D",
             size: '23px'
+            
           },
           
         subTitle : '(Data is fetched live from database)',
@@ -107,6 +108,9 @@ window.onload=async()=>{
 
 
 $logoutbtn.addEventListener('click',async(e)=>{
+
+    const confirmLogout=confirm("Are you sure you want to logout?");
+    if(confirmLogout){
     const result = await fetch('/admin/logout', {
         method: 'POST',
         headers: {
@@ -122,5 +126,5 @@ $logoutbtn.addEventListener('click',async(e)=>{
        // alert("success")
        return res.json()
     })
-    
+}   
 })

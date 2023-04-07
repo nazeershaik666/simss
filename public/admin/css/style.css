@@ -614,7 +614,7 @@ p{
 }
 
 .profile {
-    background: rgb(224, 255, 234);
+    background: #fff;
     color: #0a0a0a;
     display: float;
     /* flex-direction: row; */
@@ -624,6 +624,7 @@ p{
     /* text-align: center; */
     margin-top: 40px;
     border-radius: 8px;
+    font-size: larger;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

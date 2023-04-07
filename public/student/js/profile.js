@@ -1,6 +1,30 @@
-const token=localStorage.getItem('token')
+
 const jobbody=document.getElementById('job-body')
 let usersContainer = document.getElementById("profiles");
+const $logoutbtn=document.querySelector('.logout-btn')
+const token=localStorage.getItem('token')
+
+$logoutbtn.addEventListener('click',async(e)=>{
+    const confirmLogout=confirm("Are you sure you want to logout?");
+    if(confirmLogout){
+    const result = await fetch('/student/logout', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization':'Bearer '+token
+        },
+        body: JSON.stringify({
+           
+        })
+    }).then((res)=>{
+        localStorage.clear()
+        location.href="/"
+       // alert("success")
+   return res.json()
+    })
+    console.log(result)
+}
+})
 //const base64 = require('base64topdf');
 
 
@@ -18,7 +42,7 @@ window.onload=async()=>{
     
      
     const mappedUsers = `<div class="profile">
-        <p>First Name: ${result.firstname} </p>
+        <p>First name: ${result.firstname} </p>
         <p>Last Name: ${result.lastname}</p>
         <p>Email: <a href="mailto:${result.email}" target="_blank">${result.email}</a></p> 
         <p>DOB (MM/Year) : ${result.month} / ${result.year} </p>

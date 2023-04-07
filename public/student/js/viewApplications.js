@@ -1,10 +1,35 @@
 const token=localStorage.getItem('token')
 const jobbody=document.getElementById('job-body')
+const $logoutbtn=document.querySelector('.logout-btn')
+
 let usersContainer = document.getElementById("jobs");
 //const base64 = require('base64topdf');
 
 
 //console.log(localStorage.getItem('studentid'),localStorage.getItem('token'))
+
+$logoutbtn.addEventListener('click',async(e)=>{
+  const confirmLogout=confirm("Are you sure you want to logout?");
+  if(confirmLogout){
+  const result = await fetch('/student/logout', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization':'Bearer '+ localStorage.getItem('token')
+      },
+      body: JSON.stringify({
+         
+      })
+  }).then((res)=>{
+      localStorage.clear()
+      location.href="/"
+     // alert("success")
+ return res.json()
+  })
+  console.log(result)
+}
+})
+
 window.onload=async()=>{
     console.log("onload")
     const result = await fetch(`/studentviewapplications?studentid=${localStorage.getItem('studentid')}`, {

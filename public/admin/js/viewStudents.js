@@ -3,11 +3,37 @@ const token=localStorage.getItem('token')
 const jobbody=document.getElementById('job-body')
 const search=document.getElementById('searchbox')
 const $searchbutton=document.querySelector('.searchbutton')
+const $logoutbtn=document.querySelector('.logout-btn')
+
 let usersContainer = document.getElementById("jobs");
 
 // $applybtn.addEventListener('click',(e)=>{
 //     location.href='/student/applypage.html'
 // })
+
+
+$logoutbtn.addEventListener('click',async(e)=>{
+
+  const confirmLogout=confirm("Are you sure you want to logout?");
+  if(confirmLogout){
+  const result = await fetch('/admin/logout', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization':'Bearer '+token
+      },
+      body: JSON.stringify({
+         
+      })
+  }).then((res)=>{
+      localStorage.clear()
+      location.href="/"
+     // alert("success")
+     return res.json()
+  })
+}   
+})
+
 
 window.onload=async()=>{
     console.log("onload") 
@@ -76,86 +102,42 @@ $searchbutton.addEventListener('click',async (e)=>{
  
 })
   }).then((res) => res.json())
-
-
-
-
-
-
-
-
-  //console.log(result);
-  
  
-   // console.log(document.getElementById("filtertype").value)
-  // const filtertype = document.getElementById("filtertype").value
-  // console.log(job)
- // return filtertype == 1 ? job.companyname.toLowerCase().includes(searchterm) : filtertype == 2 ? job.title.toLowerCase().includes(searchterm) : filtertype == 3 ? job.yoe.toString().includes(searchterm) : job.worktype.toLowerCase().includes(searchterm)
+var filter = {
  
- 
+};
 
- 
-const filterTitleFunction = (student)=>{
-  // console.log(document.getElementById("filtertype").value)
- // const filtertype = document.getElementById("filtertype").value
- // console.log(job)
-// return filtertype == 1 ? job.companyname.toLowerCase().includes(searchterm) : filtertype == 2 ? job.title.toLowerCase().includes(searchterm) : filtertype == 3 ? job.yoe.toString().includes(searchterm) : job.worktype.toLowerCase().includes(searchterm)
-if(searchterm) {
- return  parseInt(student.ssn) == parseInt(searchterm) || parseInt(student.universityid) == parseInt(searchterm) || student.firstname.toLowerCase().includes(searchterm) || student.lastname.toLowerCase().includes(searchterm) || student.email.toLowerCase().includes(searchterm)// || job.empbenefits.toString().includes(searchterm)
-}
-
-let b = {
-    c1 : student.email,
-    c2 : student.firstname,
-    c3 : student.lastname
-}
-
-console.log(b)
-let flag , a
-let arr = []
-let a1 = studentName , a2 = mail , a3 = universityId , a4 = ssn
+let a1 = studentName , a2 = mail ,a3 = universityId, a4= ssn
 if(a1)
- arr.push(a1.toLowerCase())
+  filter.firstname = a1.toLowerCase()
 if(a2)
- arr.push(a2.toLowerCase())
+  filter.email = a2.toLowerCase()
 if(a3)
-  arr.push(a3)
+  filter.universityid = a3.toString()
 if(a4)
-  arr.push(a4)
+  filter.ssn = a4.toString()
 
- let c = Object.values(b)
-a = arr.length 
-for(let i=0; i< a ; i++){
 
-  if(c.toString().toLowerCase().includes(arr[i])){
-      flag = true
-   }
-   else if(Number(student.universityid) == Number(arr[i])){
-    flag = true
-   console.log(a3)
+console.log(filter)
+
+var users = result.filter( function(item) {
+ if(searchterm) {
+   const student = item
+   return  parseInt(student.ssn) == parseInt(searchterm) || parseInt(student.universityid) == parseInt(searchterm) || student.firstname.toLowerCase().includes(searchterm) || student.lastname.toLowerCase().includes(searchterm) || student.email.toLowerCase().includes(searchterm)// || job.empbenefits.toString().includes(searchterm)
   }
-else if(Number(student.ssn) == Number(arr[i])){
-     flag = true
-  }
-else{
- flag = false
- break
-    }
-  }
+ for (var key in filter) {
+  
+   if ( item[key].toString().toLowerCase() != filter[key] )
+  
+     return false;
 
+ }
+ return true;
+});
 
-if(flag == true){
- console.log(b.c2)
- return b.c2
-  }
-
-
-}
+console.log(users)
  
- const filteredResult = result.filter(filterTitleFunction)
-
- 
- const mappedUsers = filteredResult.map((student, index) => {
+ const mappedUsers = users.map((student, index) => {
   let blockValue
   if(student.block){
     blockValue = "Unblock"

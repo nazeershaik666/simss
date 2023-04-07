@@ -15,6 +15,7 @@ $postjob.addEventListener("submit",async(e)=>{
     const $emptype=document.getElementById("emptype").value
     const $worktype=document.getElementById("worktype").value
     const $aboutcompany = document.querySelector('#aboutcompany')
+    const $salary = document.getElementById("salary").value
     const $empbenefits=document.getElementById("empbenifits").value
     console.log($companyid,$companyname,$postedby,$requirements,$title,$yoe)
     const formData = new FormData()
@@ -25,6 +26,7 @@ $postjob.addEventListener("submit",async(e)=>{
     formData.append("yoe",$yoe)
     formData.append("emptype",$emptype)
     formData.append("worktype",$worktype)
+    formData.append("salary",$salary)
     formData.append("empbenefits",$empbenefits)
     formData.append("aboutcompany",$aboutcompany.files[0])
     formData.append("postedby",$postedby)

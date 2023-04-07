@@ -40,11 +40,13 @@ $totalapplied.addEventListener('click',(e)=>{
 })
 
 $logoutbtn.addEventListener('click',async(e)=>{
+    const confirmLogout=confirm("Are you sure you want to logout?");
+    if(confirmLogout){
     const result = await fetch('/student/logout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization':'Bearer '+token
+            'Authorization':'Bearer '+ localStorage.getItem('token')
         },
         body: JSON.stringify({
            
@@ -56,5 +58,6 @@ $logoutbtn.addEventListener('click',async(e)=>{
    return res.json()
     })
     console.log(result)
+}
 })
 

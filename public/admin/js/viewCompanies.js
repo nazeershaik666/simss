@@ -3,11 +3,35 @@ const token=localStorage.getItem('token')
 const jobbody=document.getElementById('job-body')
 const search=document.getElementById('searchbox')
 const $searchbutton=document.querySelector('.searchbutton')
+const $logoutbtn=document.querySelector('.logout-btn')
 let usersContainer = document.getElementById("jobs");
 
 // $applybtn.addEventListener('click',(e)=>{
 //     location.href='/student/applypage.html'
 // })
+
+$logoutbtn.addEventListener('click',async(e)=>{
+
+  const confirmLogout=confirm("Are you sure you want to logout?");
+  if(confirmLogout){
+  const result = await fetch('/admin/logout', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization':'Bearer '+token
+      },
+      body: JSON.stringify({
+         
+      })
+  }).then((res)=>{
+      localStorage.clear()
+      location.href="/"
+     // alert("success")
+     return res.json()
+  })
+}   
+})
+
 
 window.onload=async()=>{
     console.log("onload") 
@@ -31,8 +55,8 @@ window.onload=async()=>{
         <h1>Company Details</h1>
         <p>Company Name: ${company.firstname} ${company.lastname} </p>
         <p>Email: <a href="mailto:${company.email}" target="_blank">${company.email}</a></p>
-        <p>company id: ${company.companyid} </p>
-        <p>phone: ${company.phone}</p>
+        <p>Company Id: ${company.companyid} </p>
+        <p>Phone: ${company.phone}</p>
         <button class="btns" id="blockbutton"> <a href="block.html?companyid=${company._id}&value=${!company.block}"> ${blockValue}</a></button><br/>       
       </div>`;
       });
@@ -74,59 +98,35 @@ $searchbutton.addEventListener('click',async (e)=>{
 
 console.log(result1)
 
-const filterTitleFunction = (company)=>{
-  // console.log(document.getElementById("filtertype").value)
- // const filtertype = document.getElementById("filtertype").value
- // console.log(job)
-// return filtertype == 1 ? job.companyname.toLowerCase().includes(searchterm) : filtertype == 2 ? job.title.toLowerCase().includes(searchterm) : filtertype == 3 ? job.yoe.toString().includes(searchterm) : job.worktype.toLowerCase().includes(searchterm)
-if(searchterm) {
- return  parseInt(company.companyid) == parseInt(searchterm) || company.firstname.toLowerCase().includes(searchterm) || company.lastname.toLowerCase().includes(searchterm) // || job.empbenefits.toString().includes(searchterm)
-}
 
-let b = {
-    c1 : company.firstname,
-    c2 : company.lastname
-}
+var filter = {
+ 
+};
 
-console.log(b)
-let flag , a
-let arr = []
-let a1 = companyName , a2 = companyId
-if(a1)
- arr.push(a1.toLowerCase())
+let a1 = companyName.toLowerCase() , a2 = companyId.toString()
+if(a1){
+filter.firstname = a1
+}
 if(a2)
- arr.push(a2.toLowerCase())
+filter.companyid = a2
 
 
+console.log(filter)
 
-a = arr.length     
-for(let i=0; i< a ; i++){
-let c = Object.values(b)
-if(c.toString().toLowerCase().includes(arr[i].toString().toLowerCase())){
- flag = true
- console.log(c.toString().toLowerCase().includes(arr[i].toString().toLowerCase()))
+var users = result1.filter( function(item) {
+if(searchterm) {
+  const company = item
+  return  parseInt(company.companyid) == parseInt(searchterm) || company.firstname.toLowerCase().includes(searchterm) || company.lastname.toLowerCase().includes(searchterm) // || job.empbenefits.toString().includes(searchterm)
 }
-else if(Number(company.companyid) == Number(arr[i])){
-  flag = true
-}
-else{
- flag = false
- break
-    }
-  }
-if(flag == true){
- console.log(b.c1)
- return b.c1
-  }
+ for (var key in filter) {
+   if (item[key] === undefined || item[key].toString().toLowerCase() != filter[key].toString().toLowerCase())
+     return false;
+ }
+ return true;
+});
 
-
-}
-
-
-const filteredResult = result1.filter(filterTitleFunction)
-
- console.log(filteredResult,"filterresult")
-const mappedUsers = filteredResult.map((company, index) => {
+console.log(users)
+const mappedUsers = users.map((company, index) => {
   let blockValue
   if(company.block){
     blockValue = "Unblock"
@@ -135,8 +135,8 @@ const mappedUsers = filteredResult.map((company, index) => {
     <h1>Company Details</h1>
     <p>Company Name: ${company.firstname} ${company.lastname} </p>
     <p>Email: <a href="mailto:${company.email}" target="_blank">${company.email}</a></p>
-    <p>company id: ${company.companyid} </p>
-    <p>phone: ${company.phone}</p>
+    <p>company Id: ${company.companyid} </p>
+    <p>Phone: ${company.phone}</p>
     <button class="btns" id="blockbutton"> <a href="block.html?companyid=${company._id}&value=${!company.block}"> ${blockValue}</a></button><br/>       
   </div>`;
   });

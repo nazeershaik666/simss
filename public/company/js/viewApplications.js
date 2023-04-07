@@ -5,9 +5,33 @@ const jobbody=document.getElementById('job-body')
 let usersContainer = document.getElementById("jobs");
 const search=document.getElementById('searchbox')
 const $searchbutton=document.querySelector('.searchbutton')
+const $logoutbtn=document.querySelector('.logout-btn')
 var userfilter = false;
 
 
+
+
+$logoutbtn.addEventListener('click',async(e)=>{
+
+  const confirmLogout=confirm("Are you sure you want to logout?");
+  if(confirmLogout){
+  const result = await fetch('/company/logout', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization':'Bearer '+token
+      },
+      body: JSON.stringify({
+         
+      })
+  }).then((res)=>{
+      localStorage.clear()
+      location.href="/"
+     // alert("success")
+     return res.json()
+  })
+}   
+})
 
 window.onload=async()=>{
     console.log("onload")
@@ -23,7 +47,7 @@ window.onload=async()=>{
     const mappedUsers = result.map((application, index) => {
         return `<div class="job">
         <h1>Application details</h1>
-        <p>Student Name: <span id="findname"> ${application.firstname} </span></p>
+        <p>Student Name: <span id="findname" style="text-transform: uppercase; font-weight: bolder;"> ${application.firstname} </span></p>
         <p>Email: <a href="mailto:${application.email}" target="_blank">${application.email}</a></p> 
         <p>Age: <span id="findage">${application.age}</span></p>
         <p>Phone: ${application.phone}</p>
@@ -64,15 +88,15 @@ $searchbutton.addEventListener('click',async (e)=>{
   const mappedUser = result1.map((application, index) => {
     return `<div class="job">
     <h1>Application details</h1>
-    <p>Student Name: <span id="findname"> ${application.firstname} </span></p>
+    <p>Student Name: <span id="findname" style="text-transform: uppercase; font-weight: bolder;" > ${application.firstname} </span></p>
     <p>Email: <a href="mailto:${application.email}" target="_blank">${application.email}</a></p>
     <p>Age: <span id="findage">${application.age}</span></p>
     <p>Phone: ${application.phone}</p>
     <p>Gender: ${application.gender}</p>
-    <button class="btn" ><i class="fa-solid fa-download fa-1x"></i><a innerHtml="Download resume"  download="resume.pdf" href="data:application/octet-stream;base64,${application.resume.resumeData.toString('base64')}"> Download Resume</a></button><br />
+    <button class="btns" ><i class="fa-solid fa-download fa-1x"></i><a innerHtml="Download resume"  download="resume.pdf" href="data:application/octet-stream;base64,${application.resume.resumeData.toString('base64')}"> Download Resume</a></button><br />
 
-    <button class="btn"  onclick="window.location.href='qualified.html?applicationid=${application._id}'" type="submit" value="Submit" > Qualify </button>    
-    <button class="btn"  onclick="window.location.href='rejected.html?applicationid=${application._id}'" type="submit" value="Submit" > Reject </button> 
+    <button class="btns"  onclick="window.location.href='qualified.html?applicationid=${application._id}'" type="submit" value="Submit" > Qualify </button>    
+    <button class="btns"  onclick="window.location.href='rejected.html?applicationid=${application._id}'" type="submit" value="Submit" > Reject </button> 
       
   </div>`;
   });
