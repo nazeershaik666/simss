@@ -34,10 +34,10 @@
       <div  style="overflow: visible;"
       class="topnav">
        <input class="searchbox" type="text" id="searchbox"  placeholder="Search...">
-       <input class="searchbox" type="text" id="studentName" placeholder="Student name">
-       <input class="searchbox" type="text" id="email" placeholder="Student Mail ID">
-       <input class="searchbox" type="text" id="universityId" placeholder="University Id">
-       <input class="searchbox" type="text" id="ssn" placeholder="Enter SSN">
+       <input class="searchbox" type="text" onkeydown="return /[a-z]/i.test(event.key)" id="studentName" placeholder="Student name">
+       <input class="searchbox" type="email" id="email" placeholder="Student Mail ID">
+       <input class="searchbox" type="number" id="universityId" placeholder="University Id">
+       <input class="searchbox" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "4" id="ssn" placeholder="Enter SSN">
     <!--  <select name="filtertype" style="padding: 7px;   border-radius: 8px;background-color: #fff" id="filtertype">
          <option value="1">Company Name</option>
          <option value="2">Job Title</option>

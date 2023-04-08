@@ -127,7 +127,7 @@ var users = result.filter( function(item) {
   }
  for (var key in filter) {
   
-   if ( item[key].toString().toLowerCase() != filter[key].toString().toLowerCase() )
+   if ( item[key].toString().toLowerCase() != filter[key] )
   
      return false;
 

@@ -45,7 +45,7 @@ window.onload=async()=>{
     const mappedUsers = result.map((job, index) => {
         return `<div class="job">
         <h1>Job Description</h1>
-        <p>Company Name : ${job.companyname} </p>
+        <p>Company Name : <span style="text-transform: uppercase; font-weight: bolder;"> ${job.companyname} </span> </p>
         <p>Job Title : ${job.title}</p>
         <p>Experience level : ${job.yoe} years</p>
         <p>
@@ -130,7 +130,7 @@ $searchbutton.addEventListener('click',async (e)=>{
   const mappedUsers = users.map((job, index) => {
     return `<div class="job">
     <h1>Job Description</h1>
-    <p>Company Name: ${job.companyname} </p>
+    <p>Company Name: <span style="text-transform: uppercase; font-weight: bolder;"> ${job.companyname} </span> </p>
     <p>Job Title: ${job.title}</p>
     <p>Experience level: ${job.yoe} years</p>
     <p>

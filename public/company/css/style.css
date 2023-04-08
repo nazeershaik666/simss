@@ -250,6 +250,7 @@ p{
     box-shadow: rgba(0, 0, 0, 0) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
     transition: 1s;
     overflow: visible;
+    max-width: 400px;
 }
 
 .job:hover{
@@ -300,14 +301,13 @@ p{
 }
 
 #profiles{
-    display: flex;
-    flex-direction: column;
-    opacity: 0.9;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
     
 }
 
 .profile {
-    background: rgb(224, 255, 234);
+    background: rgb(255, 255, 255);
     color: #0a0a0a;
     display: float;
     /* flex-direction: row; */

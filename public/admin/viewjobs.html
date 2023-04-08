@@ -28,12 +28,13 @@
 
       <div  style="overflow: visible;"
       class="topnav">
-       <input class="searchbox" type="text" id="searchbox" placeholder="Search...">
-       <input class="searchbox" type="text" id="companyName" placeholder="Company name">
-       <input class="searchbox" type="text" id="jobTitle" placeholder="Job Title">
-       <input class="searchbox" type="text" id="experience" placeholder="Experience">
-       <input class="searchbox" type="text" id="jobType" placeholder="Job Type...">
-       <input class="searchbox" type="text" id="salary" placeholder="Salary">
+       <input class="searchbox" type="text" onkeydown="return /[a-z]/i.test(event.key)" id="searchbox" placeholder="Search...">
+       <input class="searchbox" type="text" onkeydown="return /[a-z]/i.test(event.key)" id="companyName" placeholder="Company name">
+       <input class="searchbox" type="text" onkeydown="return /[a-z]/i.test(event.key)" id="jobTitle" placeholder="Job Title">
+       <input class="searchbox" type="number" maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        id="experience" placeholder="Experience">
+       <input class="searchbox" type="text" onkeydown="return /[a-z]/i.test(event.key)" id="jobType" placeholder="Job Type...">
+       <input class="searchbox" type="number"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "6" id="salary" placeholder="Salary">
     <!--  <select name="filtertype" style="padding: 7px;   border-radius: 8px;background-color: #fff" id="filtertype">
          <option value="1">Company Name</option>
          <option value="2">Job Title</option>

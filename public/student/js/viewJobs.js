@@ -5,7 +5,7 @@ const search=document.getElementById('searchbox')
 const $searchbutton=document.querySelector('.searchbutton')
 const studentName = localStorage.getItem("name");
 const $logoutbtn=document.querySelector('.logout-btn')
-
+var ab
 let usersContainer = document.getElementById("jobs");
 
 // $applybtn.addEventListener('click',(e)=>{
@@ -76,7 +76,7 @@ if(a3)
 if(a4)
  filter.yoe = a4
 if(a5)
- filter.salary= a5
+ filter.salary = a5
 
 console.log(filter)
 
@@ -86,7 +86,7 @@ var users = result.filter( function(item) {
     return  parseInt(job.yoe) == parseInt(searchterm) || job.companyname.toLowerCase().includes(searchterm) || job.title.toLowerCase().includes(searchterm) || job.worktype.toLowerCase().includes(searchterm) || parseInt(job.salary) == parseInt(searchterm)
    }
   for (var key in filter) {
-    if (item[key].toString().toLowerCase() === undefined || item[key].toString().toLowerCase() != filter[key])
+    if (!item[key].toString().toLowerCase().includes(filter[key].toString().toLowerCase()))
       return false;
 
   }
@@ -158,7 +158,8 @@ window.onload=async()=>{
         <p>Employee benifits : ${job.empbenefits} </p>
         <button class="btns"><i class="fa-solid fa-download fa-1x"></i><a innerHtml="download About company" download="About company.pdf" href="data:application/octet-stream;base64,${job.aboutcompany.companyData.toString('base64')}"> Download About Company </a></button><br/>
           <button class="apply-btn btns"  onclick="window.location.href='applypage.html?jobid=${job._id}'" type="submit" value="Submit" > Apply </button>
-          <button class="apply-btn btns" style="margin-left: 20px;"  onclick= "getMail('${job.companyname}','${job.title}','${job.yoe}','${job.requirements}','${job.worktype}','${job.emptype}','${job.empbenefits}')"> Share </button>  
+          <a href="#popup1"><button class="apply-btn btns" style="margin-left: 20px;" onclick= "getMail('${job.companyname}','${job.title}','${job.yoe}','${job.requirements}','${job.worktype}','${job.emptype}','${job.empbenefits}')">Share</buttton></a>
+          
       </div>`;
       });
 
@@ -169,14 +170,32 @@ window.onload=async()=>{
       else{
         alert("Applications Empty") 
         //    usersContainer.innerHTML = "<h1>There are no pending applications to review, Please comeback later!</h1>"
-          // location.href="../student/studentindex.html"
+          // location.href="../student/studentindex.html"     <button class="apply-btn btns" style="margin-left: 20px;"  onclick= "getMail('${job.companyname}','${job.title}','${job.yoe}','${job.requirements}','${job.worktype}','${job.emptype}','${job.empbenefits}')"> Share </button> 
       }
 }
 
 async function getMail(companyname,title,yoe,requirements,worktype,emptype,empbenefits){
-// console.log(companyname,title,yoe,requirements,worktype,emptype,empbenefits)
-  const mailid = prompt("Enter your friend Mail ID : ");
-  console.log(mailid)
+
+   ab = {
+    companyname : companyname,
+    title :title,
+    yoe : yoe,
+    requirements : requirements,
+    worktype: worktype,
+    emptype : emptype,
+    empbenefits : empbenefits
+  }
+}
+
+function btnClicked(mailid){
+ 
+console.log(ab)
+refer(ab.companyname,ab.title,ab.yoe,ab.requirements,ab.worktype,ab.emptype,ab.empbenefits,mailid)
+
+}
+
+async function refer(companyname,title,yoe,requirements,worktype,emptype,empbenefits,mailid){
+console.log(companyname,title,yoe,requirements,worktype,emptype,empbenefits,mailid)
  if(mailid){
  const result2 = await fetch('/refer', {
     method: 'POST',

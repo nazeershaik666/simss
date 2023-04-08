@@ -28,8 +28,8 @@
       <div  style="overflow: visible;"
       class="topnav">
        <input class="searchbox" type="text" id="searchbox" placeholder="Search...">
-       <input class="searchbox" type="text" id="companyId" placeholder="Company Id">
-       <input class="searchbox" type="text" id="companyName" placeholder="Company Name">
+       <input class="searchbox" type="number" id="companyId" placeholder="Company Id">
+       <input class="searchbox" type="text" onkeydown="return /[a-z]/i.test(event.key)" id="companyName" placeholder="Company Name">
     <!--  <select name="filtertype" style="padding: 7px;   border-radius: 8px;background-color: #fff" id="filtertype">
          <option value="1">Company Name</option>
          <option value="2">Job Title</option>

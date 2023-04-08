@@ -26,10 +26,10 @@
 	--gray9: hsl(var(--hue),10%,10%);
 	--primary: hsl(var(--hue),90%,55%);
 	--trans-dur: 0.3s;
-	font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+	
 }
 input {
-	font: 1em/1.5 "DM Sans", sans-serif;
+	font: 30px "DM Sans", sans-serif;
 }
 body {
 	background-color: var(--white);
@@ -467,7 +467,7 @@ a{
 
 </style>
 <body id="about-bg">
-	<!-- <header>
+ <header>
         <nav id="navbar">
           <div class="container">
             <h1 class="logo">
@@ -484,7 +484,7 @@ a{
             </ul>
           </div>
         </nav>
-      </header>  -->
+      </header>  
 	  <div class="contain">
 		<div class="backs" style="float: right; color: white;">
 		<a href="index.html" style="text-decoration: none; color: black; float: right;" ><h2 style="margin: 5px; margin-right: 0px; float: right;"><u>BACK</u></h2></a> </div>
@@ -518,6 +518,7 @@ a{
 	</form>
 </div>
 
+<!--
 <div class="testimonials">
 	<div class="inner">
 	  <h1>Testimonials</h1>
@@ -579,7 +580,7 @@ a{
 		</div>
 	  </div>
 	</div>
-  </div>
+  </div>  -->
     <script>window.addEventListener("DOMContentLoaded",() => {
         const fr = new FaceRating("#face-rating");
 		console.log(document.getElementById("face-rating").value)

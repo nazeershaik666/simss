@@ -35,8 +35,8 @@
         margin-top: 8px;
         margin-right: 16px;
         font-size: 17px;" class="searchbox" type="text" id="searchbox" placeholder="Search..">
-        <input class="searchbox" type="text" id="name" placeholder="Name">
-        <input class="searchbox" type="text" id="age" placeholder="Age">
+        <input class="searchbox" type="text" onkeydown="return /[a-z]/i.test(event.key)" id="name" placeholder="Name">
+        <input class="searchbox" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "2" id="age" placeholder="Age">
         <button style="padding: 7px;   border-radius: 8px;background-color: #fff  " class="searchbutton">Search</button>
       </div>
     

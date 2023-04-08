@@ -73,9 +73,11 @@ var users = result.filter( function(item) {
    return  parseInt(job.yoe) == parseInt(searchterm) || job.companyname.toLowerCase().includes(searchterm) || job.title.toLowerCase().includes(searchterm) || job.worktype.toLowerCase().includes(searchterm)|| job.empbenefits.toString().includes(searchterm)
   }
  for (var key in filter) {
-   if (item[key].toString().toLowerCase() === undefined || item[key].toString().toLowerCase() != filter[key].toString().toLowerCase())
-     return false;
-
+  var abc =  item[key].toString().toLowerCase().includes(filter[key].toString().toLowerCase())
+  console.log(!item[key].toString().toLowerCase().includes(filter[key].toString().toLowerCase()))
+ //  if (item[key].toString().toLowerCase() === undefined || item[key].toString().toLowerCase().includes(!filter[key].toString().toLowerCase()))
+  if(!item[key].toString().toLowerCase().includes(filter[key].toString().toLowerCase())) 
+   return false;
  }
  return true;
 });
