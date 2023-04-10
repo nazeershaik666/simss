@@ -228,6 +228,9 @@ p{
     align-items: center;
     text-align: center;
     justify-content: space-around;
+    overflow-x: hidden;
+    overflow-y: visible;
+    min-height: 800px;
 }
 .img img{
    
@@ -297,9 +300,9 @@ p{
     justify-content: center;
     text-align: center;
     height: 150px;
-    margin-top: 100px !important;
+    margin-top: 50px !important;
     position: relative;
-    bottom: 0;
+    bottom: 0 !important;
     width: 100%;
 }
 
@@ -683,5 +686,4 @@ margin-top: 250px !important;
     top:40%;
     left:0;
     width:100%;
-    height: inherit;
 }
