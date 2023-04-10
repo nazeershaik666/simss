@@ -1,5 +1,5 @@
 
-document.getElementById("welcome").innerHTML = "welcomes "+localStorage.getItem("name")+" you logged in as a student"
+document.getElementById("welcome").innerHTML = "Welcomes "+localStorage.getItem("name")+"! You logged in as a Student"
 
 const $totaljobs=document.querySelector(".totaljobs")
 const $totalapplied=document.querySelector(".totalapplied")

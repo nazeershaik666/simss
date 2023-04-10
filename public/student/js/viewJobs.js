@@ -12,6 +12,8 @@ let usersContainer = document.getElementById("jobs");
 //     location.href='/student/applypage.html'
 // })
 
+
+
 $logoutbtn.addEventListener('click',async(e)=>{
   const confirmLogout=confirm("Are you sure you want to logout?");
   if(confirmLogout){
@@ -36,6 +38,7 @@ $logoutbtn.addEventListener('click',async(e)=>{
 
 
 $searchbutton.addEventListener('click',async (e)=>{
+  $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
   const companyName = document.getElementById('companyName').value
   const jobTitle = document.getElementById('jobTitle').value
   const Exp = document.getElementById('experience').value
@@ -115,15 +118,22 @@ console.log(users)
   });  
 
   console.log(mappedUsers)
+  let load = document.getElementById("loadingDiv")
+  load.remove()
   if(mappedUsers.length>0){
+
     usersContainer.innerHTML = mappedUsers
 }
   else{
+ 
     alert("no matching results")
   }
 })
 
 window.onload=async()=>{
+
+  $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
+
     console.log("onload") 
     const result = await fetch('/jobs', {
         method: 'POST',
@@ -162,7 +172,8 @@ window.onload=async()=>{
           
       </div>`;
       });
-
+      var loader =document.getElementById("loadingDiv")
+      loader.remove()
       if(mappedUsers.length>0){
         usersContainer.innerHTML += mappedUsers
     //    console.log(mappedUsers)
@@ -185,6 +196,13 @@ async function getMail(companyname,title,yoe,requirements,worktype,emptype,empbe
     emptype : emptype,
     empbenefits : empbenefits
   }
+}
+
+function removeLoader(){
+  $( "#loadingDiv" ).fadeOut(500, function() {
+    // fadeOut complete. Remove the loading div
+    $( "#loadingDiv" ).remove(); //makes page more lightweight 
+}); 
 }
 
 function btnClicked(mailid){
