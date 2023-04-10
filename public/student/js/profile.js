@@ -44,8 +44,8 @@ window.onload=async()=>{
     const mappedUsers = `
     <div class="containerr">
     <div class="profile">
-        <p>First name: ${result.firstname} </p>
-        <p>Last Name: ${result.lastname}</p>
+        <p>First name: <span style ="text-transform: capitalize;" > ${result.firstname} </span> </p>
+        <p>Last Name:  <span style ="text-transform: capitalize;"> ${result.lastname} </span> </p>
         <p>Email: <a href="mailto:${result.email}" target="_blank">${result.email}</a></p> 
         <p>DOB (MM/Year) : ${result.month} / ${result.year} </p>
         <p>SSN: ${result.ssn} </p>
