@@ -31,6 +31,7 @@ $logoutbtn.addEventListener('click',async(e)=>{
 })
 
 window.onload=async()=>{
+    $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
     console.log("onload")
     const result = await fetch(`/studentviewapplications?studentid=${localStorage.getItem('studentid')}`, {
         method: 'GET',
@@ -131,7 +132,8 @@ window.onload=async()=>{
       });
       
       console.log(mappedUsers1.length + mappedUsers2.length + mappedUsers3.length + mappedUsers4.length)
-    
+      let load = document.getElementById("loadingDiv")
+      load.remove()
       if(mappedUsers1.length >0 || mappedUsers2.length>0 || mappedUsers3.length>0 || mappedUsers4.length>0){
         usersContainer.innerHTML = [...mappedUsers1,...mappedUsers2,...mappedUsers3,...mappedUsers4]
         if((mappedUsers1.length + mappedUsers2.length + mappedUsers3.length + mappedUsers4.length) < 3){

@@ -1,5 +1,5 @@
 
-document.getElementById("welcome").innerHTML = "Welcome "+localStorage.getItem("name").toUpperCase()+" you are an Admin!"
+document.getElementById("welcome").innerHTML = "Welcome "+localStorage.getItem("name").charAt(0).toUpperCase()+localStorage.getItem("name").slice(1)+" you are an Admin!"
  
 const $totaljobs=document.querySelector(".totaljobs")
 const $totalapplied=document.querySelector(".totalapplied")

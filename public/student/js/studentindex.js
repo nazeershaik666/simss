@@ -1,5 +1,7 @@
+let studentName = localStorage.getItem("name")
+studentName = studentName.charAt(0).toUpperCase() + studentName.slice(1)
 
-document.getElementById("welcome").innerHTML = "Welcomes "+localStorage.getItem("name")+"! You logged in as a Student"
+document.getElementById("welcome").innerHTML = "Welcomes "+studentName+" You logged in as a Student"
 
 const $totaljobs=document.querySelector(".totaljobs")
 const $totalapplied=document.querySelector(".totalapplied")
@@ -8,6 +10,7 @@ const $logoutbtn=document.querySelector(".logout-btn")
 const token=localStorage.getItem('token')
 
 window.onload=async()=>{
+    $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
     console.log("onload")
     const result = await fetch('/totaljobs', {
         method: 'GET',
@@ -26,6 +29,8 @@ window.onload=async()=>{
     }).then((res) => res.json())
     
     console.log(result1.jobsCount)
+    let load = document.getElementById("loadingDiv")
+    load.remove()
     document.getElementById("appliedjobscount").innerHTML=result1.jobsCount
 }
 

@@ -107,7 +107,7 @@ $searchbutton.addEventListener('click',async (e)=>{
     return  application.firstname.toLowerCase().includes(searchterm) || application.lastname.toLowerCase().includes(searchterm) || application.email.includes(searchterm) // || job.empbenefits.toString().includes(searchterm)
    }
    for (var key in filter) {
-     if (item[key] === undefined || item[key].toString().toLowerCase() != filter[key].toString().toLowerCase())
+     if (!item[key].toString().toLowerCase().includes(filter[key].toString().toLowerCase()))
        return false;
    }
    return true;

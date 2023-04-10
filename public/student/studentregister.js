@@ -70,6 +70,7 @@ $checkOtp.addEventListener('click',async (e) =>{
 
 
 function verifyPassword(password1,password2) {  
+    value = password1
     if(password1!==password2){
         document.getElementById("message").innerHTML = "password and confirm password should be same";
         return false
@@ -78,6 +79,44 @@ function verifyPassword(password1,password2) {
         document.getElementById("message").innerHTML = "password length should be longer than or equal to 8 characters";
         return false
     }
+    const isNonWhiteSpace = /^\S*$/;
+    if (!isNonWhiteSpace.test(value)) {
+        document.getElementById("message").innerHTML ="Password must not contain Whitespaces.";
+      return false
+    }
+  
+    const isContainsUppercase = /^(?=.*[A-Z]).*$/;
+    if (!isContainsUppercase.test(value)) {
+        document.getElementById("message").innerHTML ="Password must have at least one Uppercase Character.";
+        return false
+    }
+  
+    const isContainsLowercase = /^(?=.*[a-z]).*$/;
+    if (!isContainsLowercase.test(value)) {
+        document.getElementById("message").innerHTML = "Password must have at least one Lowercase Character.";
+        return false
+    }
+  
+    const isContainsNumber = /^(?=.*[0-9]).*$/;
+    if (!isContainsNumber.test(value)) {
+        document.getElementById("message").innerHTML = "Password must contain at least one Digit.";
+        return false
+    }
+  
+    const isContainsSymbol =
+      /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
+    if (!isContainsSymbol.test(value)) {
+        document.getElementById("message").innerHTML = "Password must contain at least one Special Symbol.";
+        return false
+    }
+  
+    const isValidLength = /^.{8,16}$/;
+    if (!isValidLength.test(value)) {
+        document.getElementById("message").innerHTML = "Password must be 8-16 Characters Long.";
+        return false
+    }
+
+
     return true
    
   }  

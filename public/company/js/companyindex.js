@@ -1,5 +1,6 @@
-
-document.getElementById("welcome").innerHTML = "welcome "+localStorage.getItem("name")+" you logged in as a company"
+let cName = localStorage.getItem("name")
+cName = cName.charAt(0).toUpperCase() + cName.slice(1)
+document.getElementById("welcome").innerHTML = "welcome "+cName+" you logged in as a company"
 
 const $totaljobs=document.querySelector(".totaljobs")
 const $totalapplied=document.querySelector(".totalapplied")
@@ -19,6 +20,7 @@ $totalshorlisted.addEventListener('click',(e)=>{
     location.href="/company/viewshortlists.html"
 })
 window.onload=async()=>{
+    $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
     console.log("onload")
     const result = await fetch(`/company/totaljobs?companyid=${localStorage.getItem('companyid')}`, {
         method: 'GET',
@@ -46,6 +48,8 @@ window.onload=async()=>{
     }).then((res) => res.json())
     
     console.log(result2.applicationsCount)
+    let load = document.getElementById("loadingDiv")
+    load.remove()
     document.getElementById("totalshortlists").innerHTML=result2.applicationsCount
 }
 $logoutbtn.addEventListener('click',async(e)=>{

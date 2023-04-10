@@ -101,15 +101,15 @@ $searchbutton.addEventListener('click',async (e)=>{
  
  let a1 = companyName , a2 = jobTitle ,a3 = jobType, a4= Exp , a5 = salary
  if(a1)
-  filter.companyname = a1
+  filter.companyname = a1.toString().toLowerCase()
  if(a2)
-  filter.title = a2
+  filter.title = a2.toString().toLowerCase()
  if(a3)
-  filter.worktype = a3
+  filter.worktype = a3.toString().toLowerCase()
  if(a4)
-  filter.yoe = a4
+  filter.yoe = a4.toString()
  if(a5)
-  filter.salary= a5
+  filter.salary= a5.toString()
  
  
  var users = result1.filter( function(item) {
@@ -118,7 +118,7 @@ $searchbutton.addEventListener('click',async (e)=>{
      return  parseInt(job.yoe) == parseInt(searchterm) || job.companyname.toLowerCase().includes(searchterm) || job.title.toLowerCase().includes(searchterm) || job.worktype.toLowerCase().includes(searchterm) || parseInt(job.salary) == parseInt(searchterm)
     }
    for (var key in filter) {
-     if (item[key].toString().toLowerCase() === undefined || item[key].toString().toLowerCase() != filter[key])
+     if (!item[key].toString().toLowerCase().includes(filter[key]))
        return false;
  
    }
