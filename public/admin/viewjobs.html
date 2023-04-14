@@ -33,7 +33,11 @@
        <input class="searchbox" type="text" onkeydown="return /[a-z]/i.test(event.key)" id="jobTitle" placeholder="Job Title">
        <input class="searchbox" type="number" maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
         id="experience" placeholder="Experience">
-       <input class="searchbox" type="text" onkeydown="return /[a-z]/i.test(event.key)" id="jobType" placeholder="Job Type...">
+        <select class="searchbox" id="jobType" name="jobType">
+          <option value="">Job Type</option>
+          <option value="onsite">On-site</option>
+          <option value="remote">Remote</option>
+        </select>
        <input class="searchbox" type="number"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "6" id="salary" placeholder="Salary">
     <!--  <select name="filtertype" style="padding: 7px;   border-radius: 8px;background-color: #fff" id="filtertype">
          <option value="1">Company Name</option>

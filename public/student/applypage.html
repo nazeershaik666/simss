@@ -125,17 +125,17 @@
         <form id="student-apply">
           <div class="form-group">
             <label for="first-name">First Name</label>
-            <input type="text" name="firstName" id="first-name" required />
+            <input type="text" onkeydown="return /[a-z]/i.test(event.key)" name="firstName" id="first-name" required />
           </div>
           <div class="form-group">
             <label for="last-name">Last Name</label>
-            <input type="text" name="lastName" id="last-name" required />
+            <input type="text" onkeydown="return /[a-z]/i.test(event.key)" name="lastName" id="last-name" required />
           </div>
           <div class="form-group">
             <label for="month">Month</label>
-              <input placeholder="Enter month number..." name="month" id="month" type="number" required/>
+              <input placeholder="Enter month number..." min="1" max="12" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "2" name="month" id="month" type="number" required/>
             <label for="year">Year</label>
-            <input name="year" id="year" type="number" required/>  
+            <input name="year" id="year" min="1975" max="2005" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "4" type="number" required/>  
           </div>
           <div class="form-group">
             <label for="email">Email</label>
@@ -143,11 +143,11 @@
           </div>
           <div class="form-group">
             <label for="phone">Phone</label>
-            <input type="number" name="phone" id="phone" required />
+            <input type="number" name="phone" min="1" id="phone" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" minlength="9" maxlength = "10" required />
           </div>
           <div class="form-group">
             <label for="phone">University Id</label>
-            <input type="number" name="universityid" id="universityid" required />
+            <input type="number" name="universityid" min="1" id="universityid" required />
           </div>
           <div class="form-group">
             <label>Gender </label>

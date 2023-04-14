@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css?family=Raleway"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./css/style.css" />
 
     <style>
       * {
@@ -19,7 +20,7 @@
 
       body {
         font-family: 'Raleway', sans-serif;
-        background-color: #344a72;
+        background-color: whitesmoke;
         line-height: 1.8;
         color: #fff;
       }
@@ -30,12 +31,15 @@
 
       #container {
         margin: 20px auto;
-        max-width: 400px;
+        max-width: 700px;
         padding: 20px;
+        width: 500px;
+        border: 2px solid black;
+        border-radius: 10px;
       }
 
       .form-wrap {
-        background: #fff;
+        background: #ffffff;
         padding: 20px;
         color: #333;
       }
@@ -53,10 +57,12 @@
       }
 
       .form-wrap .options .current {
-        background: #37a08e;
-        color: #fff;
+        background-color: #a1fabf;
+        background-image: linear-gradient(90deg, #a1fabf 0%, #9bf0f7 74%);
+        color: #000000;
         padding: 10px;
         margin: 10px 0 10px 0;
+        font-weight: bolder;
       }
 
       .form-wrap h1,
@@ -89,17 +95,38 @@
       }
 
       .form-wrap button {
-        display: block;
         width: 100%;
-        background: #49c1a2;
-        padding: 10px;
-        margin-top: 20px;
         cursor: pointer;
-        color: #fff;
+        margin: 20px 0;
+        align-items: center;
+        display: block;
+        background-color: #a1fabf;
+        background-image: linear-gradient(90deg, #a1fabf 0%, #9bf0f7 74%);
+        border-radius: 20px;
+        border: 1px solid #a1fabf;
+        color: black;
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+        padding: 0.9rem 4rem;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+        font-weight: bolder;
+        box-shadow: 0px 0px 14px -7px #7ef7e7;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
       }
 
       .form-wrap button:hover {
-        background: #37a08e;
+        background-position: right center;
+    /* change the direction of the change here */
+    color: #ffffff;
+    font-weight: bolder;
+    background-color: black;
+    background-image: linear-gradient(90deg, rgb(24, 23, 23) 0%, #2c2c2c 74%);
+    text-decoration: none;
       }
 
       .form-wrap .bottom-text {
@@ -113,18 +140,54 @@
         text-align: center;
         margin-top: 10px;
       }
-
+      .foott p{
+        color: #000000;
+      }
       footer a {
         color: #49c1a2;
       }
+      .child{
+        display: inline-block;
+        padding: 10px 10px;
+        vertical-align: middle;
+      }
+      .img img{
+        height: 900px;
+        width: 900px;
+        z-index: -2;
+        position: absolute;
+        top: 30%;
+        left: 0%;
+     }
     </style>
   </head>
   <body>
+    <header >
+      <nav id="navbar">
+        <div class="container1">
+          <h1 class="logo">
+            <a href="index.html">Student Internship Management System</a>
+          </h1>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../feedback.html">Reviews</a></li>
+            <li><a href="../faq.html">FAQ</a></li>
+            <li><a href="../student/login.html">Login</a></li>
+            <li><a class="current" href="#">Register</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
     <div id="container">
+      <div class="img">
+        <img src="../assets/img/login2.svg">
+      </div>
       <div class="form-wrap">
         <h1>Sign Up</h1>
         <div class="options">
-          <a class="option student current" href="register.html">Student</a>
+          <a class="option student current" href="#">Student</a>
           <a class="option company" href="../company/companyregister.html">Company</a
             >
          
@@ -195,7 +258,20 @@
           </select> 
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
+            <label for="email"  style="margin-top: 10px; display: inline-block !important;">Email</label>
+            <lord-icon
+                src="https://cdn.lordicon.com/egiwmiit.json"
+                trigger="loop"
+                id="verifiedIcon"
+                colors="primary:#16c72e"
+                class="child"
+                scale="30"
+                axis-x="35"
+                axis-y="25"
+                state="intro"
+                style="width:50px; height:50px; display : none ;">
+            </lord-icon>
+            
             <input type="email" name="email" id="email" required /> 
             <button style="display: block;" id="verify">Verify your email</button>
             <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "6" id="enterOtp" style="display: none; margin-top: 20px;" required />
@@ -211,7 +287,7 @@
           </div>
           <div class="form-group">
             <label for="ssn">SSN Number</label>
-            <input placeholder="Only Last 4 digit ****"  type="number" name="ssn" id="ssn" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" required />
+            <input placeholder="Only Last 4 digit ****" min="1000" max="9999" type="number" name="ssn" id="ssn" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" required />
           </div>
           <div class="form-group">
             <label>Gender </label>
@@ -254,11 +330,30 @@
           </p>
         </form>
       </div>
-      <footer>
+      <footer class="foott">
         <p>Already have an account? <a href="login.html">Login Here</a></p>
         <p>Go To Home Page <a href="../index.html">click Here</a></p>
       </footer>
     </div>
+    <footer class="footer bg-dark" style="
+
+    margin-top: 0px !important; 
+   padding: 10px;
+   padding-bottom: 0px;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   margin-bottom: 0 !important; ">
+     <div class="social">
+       <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook fa-2x"></i></a>
+     <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+     <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+     <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+     </div>
+     <p>copyright &copy 2023 - SIMS</p>
+ </footer>
     <script src="studentregister.js"></script>
+    <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+    <script src="https://kit.fontawesome.com/f52c3b31f3.js" crossorigin="anonymous"></script>
   </body>
 </html>

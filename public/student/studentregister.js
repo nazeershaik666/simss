@@ -14,6 +14,7 @@ $studentVerify.addEventListener('click',async (e) => {
     $studentVerify.style.display = "none"
     $enterOtp.style.display = "block"
     $checkOtp.style.display = "block"
+    
     if($mailVerify){
         const result1 = await fetch('/otp', {
             method: 'POST',
@@ -36,6 +37,7 @@ $studentVerify.addEventListener('click',async (e) => {
 $checkOtp.addEventListener('click',async (e) =>{
     e.preventDefault()
     console.log("OTP verification initiated")
+   
     const $maillVerify = document.getElementById("email").value;
     const $otp = $enterOtp.value
     console.log($otp)
@@ -55,6 +57,9 @@ $checkOtp.addEventListener('click',async (e) =>{
            // console.log(result2.msg,"frontend")
             $otpstatus = true
             alert("OTP Verified")
+            $enterOtp.style.display = "none"
+            $checkOtp.style.display = "none"
+            document.getElementById("verifiedIcon").style.display = "inline-block"
         }
         else if(result2.err){
             alert("Wrong OTP")
