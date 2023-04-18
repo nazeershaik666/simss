@@ -19,17 +19,19 @@
             <ul>
               <li><a  href="index.html">Home</a></li>
               <li><a href="about.html">About</a></li>
-              <li><a class="current" href="contact.html">Contact</a></li>
-          <!--    <li><a href="student/login.html">Login</a></li>
-              <li><a href="student/register.html">Register</a></li> -->
+              <li><a class="current" href="#">Contact</a></li>
               <li><a href="faq.html">FAQ</a></li>
               <li><a href="feedback.html">Reviews</a></li>
             </ul>
           </div>
         </nav>
       </header>
+      <div class="boxx">
+        <div class="contactPage-img">
+          <img src="./assets/img/contactPage1.svg">
+         </div>
       <section id="contact-form" class="py3">
-        <div class="container">
+        <div class="contain">
             <h1 style="text-align: center;" class="l1"><span class="">Contact</span>Us</h1>
            <h3> <p style="text-align: center;">Please fill the form to contact us</p></h3>
 
@@ -56,15 +58,15 @@
         </div>
        </section>
     
-    
+      </div> 
         <div class="container">
             <div class="box">
-              <a href="https://goo.gl/maps/znUsY69bTQRCfVuq5" target="_blank" style="color: white;"> 
+              <a href="https://goo.gl/maps/znUsY69bTQRCfVuq5" target="_blank" > 
               <i class="fa-solid fa-hotel fa-3x"></i>
                 <h3>Location</h3>
                 <p>MO, USA</p> </a>
             </div>
-            <div class="box tooltip" onclick="myfun()" onmouseout="outfun()">
+            <div  class="box tooltip" onclick="myfun()" onmouseout="outfun()">
             <i class="fa-solid fa-phone fa-3x"></i>
             
             <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
@@ -73,7 +75,7 @@
                 <p>(+1) 1234567890</p>
             </div>
             <div class="box">
-               <a href="mailto:studentinternship123@gmail.com" style="color: white;" target="_blank"><i class="fa-solid fa-envelope fa-3x"></i>
+               <a href="mailto:studentinternship123@gmail.com"  target="_blank"><i class="fa-solid fa-envelope fa-3x"></i>
                 <h3>Email</h3>
                 <p>studentinternship123@gmail.com</p> </a> 
         </div>       
@@ -99,6 +101,7 @@
 
 </body>
     <script src="contact.js"></script>
+    
    <script>
     function outfun(){
       var tooltip = document.getElementById("myTooltip");
