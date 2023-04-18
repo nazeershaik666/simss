@@ -1,5 +1,8 @@
 const $studentLoginForm=document.getElementById("student-apply")
 
+
+
+
 $studentLoginForm.addEventListener('submit',async (e)=>{
     e.preventDefault()
     console.log("student application intiated")

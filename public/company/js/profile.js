@@ -38,7 +38,7 @@ window.onload=async()=>{
       </div> 
       </div>`
     
-    console.log(mappedUsers)
+
      
       usersContainer.innerHTML = mappedUsers
 }
