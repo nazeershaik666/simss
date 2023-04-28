@@ -48,12 +48,12 @@ window.onload=async()=>{
         <p>Last Name:  <span style ="text-transform: capitalize;"> ${result.lastname} </span> </p>
         <p>Email: <a href="mailto:${result.email}" target="_blank">${result.email}</a></p> 
         <p>DOB (MM/Year) : ${result.month} / ${result.year} </p>
-        <p>SSN: ${result.ssn} </p>
-        <p>Gender: ${result.gender} </p>
+        <p>Last 4 digit of SSN : ${result.ssn} </p>
+        <p>Gender: <span style ="text-transform: capitalize;" > ${result.gender} <span> </p>
         <p>University Id: ${result.universityid}</p>
         <p>Mobile: ${result.phone} </p>
         
-        <button class="btns"> <a href="editprofile.html"> Edit Profile</a></button><br/>       
+        <button class="btns"> <a href="editprofile.html"> Edit Profile</a></button>     
       </div>
       
       <div class="profileimg">

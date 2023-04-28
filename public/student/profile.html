@@ -17,10 +17,12 @@
               grid-template-columns: repeat(2, 1fr);
               grid-gap :7rem;
               padding: 0 2rem;
-              background: #fff;
+              background: whitesmoke;
+              border: 2px solid #333;
               margin-top: 40px;
               border-radius: 8px;
               min-width: 500px;
+              left: 20%;
           }
           
           .profileimg{
@@ -80,7 +82,40 @@
               justify-content: center;
             }
           }
-          
+          .btns{
+    display: inline-block;
+    font-size: 12px;
+    padding: 8px 15px;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    border: 0px;
+    font-weight: 800;
+    box-shadow: 0px 0px 14px -7px turquoise;
+    background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btns:hover{
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+.btns:active {
+    transform: scale(0.95);
+  }
+.btn-light {
+    background: #fff;
+    color: #333;
+}
                 </style>
     </head>
     <body id="profile-body">
@@ -100,7 +135,7 @@
               </ul>
             </div>
           </nav>
-        <div class="container">  
+        <div class="profileContainer">  
              
           <div id="profiles">
             

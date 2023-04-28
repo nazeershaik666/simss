@@ -33,7 +33,10 @@ $logoutbtn.addEventListener('click',async(e)=>{
 }   
 })
 
-window.onload=async()=>{
+window.onload=async()=>{  
+  
+  $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
+
     console.log("onload")
     const result = await fetch(`/viewapplications?companyid=${localStorage.getItem('companyid')}`, {
         method: 'GET',
@@ -60,13 +63,19 @@ window.onload=async()=>{
       </div>`;
       });
       if(mappedUsers.length>0){
-        usersContainer.innerHTML = mappedUsers;
+        
+        let load = document.getElementById("loadingDiv")
+        load.remove()
+        
         if(mappedUsers.length < 3){
           const  ab = document.getElementById("footer");
           ab.classList.add("foot");
         }
+        usersContainer.innerHTML = mappedUsers;
     }
       else{
+        let load = document.getElementById("loadingDiv")
+         load.remove()
            alert("Applications Empty") 
            usersContainer.innerHTML = "<h1>There are no pending applications to review, Please comeback later!</h1>"
            location.href="/company/companyindex.html"
@@ -75,6 +84,7 @@ window.onload=async()=>{
 
 
 $searchbutton.addEventListener('click',async (e)=>{
+  $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
   let searchterm = search.value.toLowerCase();
 
   const result1 = await fetch(`/viewapplications?companyid=${localStorage.getItem('companyid')}`, {
@@ -182,11 +192,15 @@ $searchbutton.addEventListener('click',async (e)=>{
 */
 
 if(!userfilter){
+  let load = document.getElementById("loadingDiv")
+  load.remove()
   alert("No such result")
   location.href="/company/viewapplications.html"
 }
   }
   else{
+    let load = document.getElementById("loadingDiv")
+  load.remove()
     alert("Applications Empty") 
   usersContainer.innerHTML = "<h1>There are no pending applications to review, Please comeback later!</h1>"
     location.href="/company/companyindex.html"

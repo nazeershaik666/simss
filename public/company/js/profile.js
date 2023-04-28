@@ -25,7 +25,7 @@ window.onload=async()=>{
         <p>Last Name: <span style ="text-transform: capitalize;"> ${result.lastname} </span> </p>
         <p>Email: <a href="mailto:${result.email}" target="_blank">${result.email}</a></p>
         <p>DOB (MM/Year) : ${result.month} / ${result.year} </p>
-        <p>Gender: ${result.gender} </p>
+        <p>Gender: <span style ="text-transform: capitalize;" > ${result.gender} </span> </p>
         <p>Company Id: ${result.companyid}</p>
         <p>Mobile: ${result.phone} </p>
         

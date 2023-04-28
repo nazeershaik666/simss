@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Form Styling</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway"
-      rel="stylesheet"
-    />
+
 
     <style>
       * {
@@ -16,11 +13,28 @@
         margin: 0px;
         padding: 0px;
       }
+      html,body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7em;
+   
+      }
 
+      a{
+          color: #333;
+          text-decoration: none;
+      }
+
+      h1,h2,h3{
+          padding-bottom: 20px;
+      }
+
+      p{
+          margin: 10px 0;
+      }
       body {
-        font-family: 'Raleway', sans-serif;
+     
         background-color: #ffffff;
-        line-height: 1.8;
+        line-height: 1.7;
         color: #000000;
       }
 
@@ -283,9 +297,9 @@
           <div class="form-group">
             <label>Gender </label>
             <select name="gender" id="gender">
-              <option value="male">Male</option>
+              <option value="Male">Male</option>
               <option value="Female">Female</option>
-              <option value="other">Others</option>
+              <option value="Other">Others</option>
             </select>
           </div> 
           <div class="form-group">

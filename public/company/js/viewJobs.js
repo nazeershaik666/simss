@@ -32,6 +32,7 @@ $logoutbtn.addEventListener('click',async(e)=>{
 })
 
 window.onload=async()=>{
+  $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
     console.log("onload")
     const result = await fetch(`/companypostedjobs?companyid=${localStorage.getItem('companyid')}`, {
         method: 'GET',
@@ -60,6 +61,8 @@ window.onload=async()=>{
       });
 
       if(mappedUsers.length>0){
+        let load = document.getElementById("loadingDiv")
+        load.remove()
         usersContainer.innerHTML = mappedUsers;
         if(mappedUsers.length < 3){
           const  ab = document.getElementById("footer")
@@ -67,6 +70,8 @@ window.onload=async()=>{
         }
     }
       else{
+        let load = document.getElementById("loadingDiv")
+        load.remove()
         alert("Applications Empty") 
         //    usersContainer.innerHTML = "<h1>There are no pending applications to review, Please comeback later!</h1>"
         location.href="/company/companyindex.html"
@@ -79,6 +84,7 @@ window.onload=async()=>{
 
 
 $searchbutton.addEventListener('click',async (e)=>{
+  $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
   const companyName = document.getElementById('companyName').value
   const jobTitle = document.getElementById('jobTitle').value
   const Exp = document.getElementById('experience').value
@@ -147,6 +153,8 @@ $searchbutton.addEventListener('click',async (e)=>{
   });
 
   if(mappedUsers.length>0){
+    let load = document.getElementById("loadingDiv")
+    load.remove()
     usersContainer.innerHTML = mappedUsers
     if(mappedUsers.length < 3){
       const  ab = document.getElementById("footer")
@@ -154,6 +162,8 @@ $searchbutton.addEventListener('click',async (e)=>{
     }
 }
   else{
+    let load = document.getElementById("loadingDiv")
+    load.remove()
     alert("no matching results")
   }
 })

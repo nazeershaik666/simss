@@ -9,11 +9,31 @@
     <link href="../css/style.css" rel="stylesheet">
     <style>
 
-
+/* Reset everything */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+/* Main styleing */
+
+html,body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7em;
+   
+}
+
+a{
+    color: #333;
+    text-decoration: none;
+}
+
+h1,h2,h3{
+    padding-bottom: 20px;
+}
+
+p{
+    margin: 10px 0;
 }
 :root {
 /* COLORS */
@@ -373,6 +393,33 @@ z-index: 5;
         height: 70px;
         width: 100%;
     }
+    .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 150px;
+    margin-top: 50px !important;
+    position: absolute;
+    bottom: 0 !important;
+    width: 100%;
+    z-index: 100;
+}
+
+.footer .social a{
+    margin-right: 20px;
+    color: turquoise;
+}
+
+.footer .social a:hover{
+    color: #fff;
+ /*   background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%); */
+    background-image: linear-gradient(45deg, #32be8f 0%, #38d39f 510%, #32be8f 100%);
+}
+.foot{
+margin-top: 250px !important;
+}
     </style>
   </head>
   <body>
@@ -443,25 +490,15 @@ z-index: 5;
       </div>
     </div>
 
-      <footer class="footer bg-dark" style="
-     margin-top: 0px !important;
-     position: fixed;
-     padding-bottom: 0px;
-     left: 0;
-     bottom: 0;
-     height: 120px !important;
-     width: 100%;
-     margin-bottom: 0 !important; 
-     z-index: 100 !important;
-     ">
-       <div class="social">
-         <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook fa-2x"></i></a>
-       <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
-       <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
-       <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
-       </div>
-       <p>copyright &copy 2023 - SIMS</p>
-   </footer>
+    <footer class="footer bg-dark" style="margin-top: 0px; background:#444;">
+      <div class="social">
+          <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook fa-2x"></i></a>
+          <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+          <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+          <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+      </div>
+      <p>copyright &copy 2023 - SIMS</p>
+  </footer>
 
     <!--
     <div id="container">

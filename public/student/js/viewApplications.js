@@ -69,13 +69,13 @@ window.onload=async()=>{
     const mappedUsers1 = result.applications.map((application, index) => {
         
         return `<div class="job">
-        <p >First name: ${application.firstname} </p>
-        <p>Last Name: ${application.lastname}</p>
-        <p> Applied Company: ${result.newResults[index].companyname}</p>
-        <p>Applied job Title: ${result.newResults[index].title}</p>
+        <p >First name: <span style ="text-transform: capitalize;" > ${application.firstname} </span> </p>
+        <p>Last Name: <span style ="text-transform: capitalize;" > ${application.lastname}  </span> </p>
+        <p> Applied Company: <span style ="text-transform: capitalize;" > ${result.newResults[index].companyname} </span> </p>
+        <p>Applied job Title: <span style ="text-transform: capitalize;" > ${result.newResults[index].title} </span> </p>
         <p>Email: <a href="mailto:${application.email}" target="_blank">${application.email}</a> </p>
         <p>DOB (MM/Year) : ${application.month} / ${application.year} </p>
-        <p>gender: ${application.gender} </p>
+        <p>gender: <span style ="text-transform: capitalize;" > ${application.gender} </span> </p>
         <p>university Id: ${application.universityid}</p>
         <p>mobile: ${application.phone} </p>
         <p><strong>Status: </strong><span style="text-transform: uppercase; font-weight: bolder;"> Applied</span></p>
@@ -85,13 +85,13 @@ window.onload=async()=>{
     const mappedUsers2 = result1.applications.map((application, index) => {
 
         return `<div class="job">
-        <p >First name: ${application.firstname} </p>
-        <p>Last Name: ${application.lastname}</p>
-        <p> Applied Company: ${result1.newResults[index].companyname}</p>
-        <p>Applied job Title: ${result1.newResults[index].title}</p>
+        <p >First name: <span style ="text-transform: capitalize;" > ${application.firstname} </span> </p>
+        <p>Last Name: <span style ="text-transform: capitalize;" > ${application.lastname} </span> </p>
+        <p> Applied Company: <span style ="text-transform: capitalize;" > ${result1.newResults[index].companyname} </span> </p>
+        <p>Applied job Title: <span style ="text-transform: capitalize;" > ${result1.newResults[index].title} </span> </p>
         <p>Email: <a href="mailto:${application.email}" target="_blank">${application.email}</a></p> 
         <p>DOB (MM/Year) : ${application.month} / ${application.year} </p>
-        <p>gender: ${application.gender} </p>
+        <p>gender: <span style ="text-transform: capitalize;" > ${application.gender} </span> </p>
         <p>university Id: ${application.universityid}</p>
         <p>mobile: ${application.phone} </p>
         <p><strong>Status: </strong> <span style="text-transform: uppercase; font-weight: bolder;">Qualified</span></p>
@@ -101,13 +101,13 @@ window.onload=async()=>{
     const mappedUsers3 = result2.applications.map((application, index) => {
 
         return `<div class="job">
-        <p >First name: ${application.firstname} </p>
-        <p>Last Name: ${application.lastname}</p>
-        <p> Applied Company: ${result2.newResults[index].companyname}</p>
-        <p>Applied job Title: ${result2.newResults[index].title}</p>
+        <p >First name: <span style ="text-transform: capitalize;" > ${application.firstname} </span> </p>
+        <p>Last Name: <span style ="text-transform: capitalize;" > ${application.lastname} </span> </p>
+        <p> Applied Company: <span style ="text-transform: capitalize;" > ${result2.newResults[index].companyname} </span> </p>
+        <p>Applied job Title: <span style ="text-transform: capitalize;" > ${result2.newResults[index].title} </span> </p>
         <p>Email: <a href="mailto:${application.email}" target="_blank">${application.email}</a></p> 
         <p>DOB (MM/Year) : ${application.month} / ${application.year} </p>
-        <p>gender: ${application.gender} </p>
+        <p>gender: <span style ="text-transform: capitalize;" > ${application.gender} </span> </p>
         <p>university Id: ${application.universityid}</p>
         <p>mobile: ${application.phone} </p>
         <p><strong>Status: </strong> <span style="text-transform: uppercase; font-weight: bolder;">Selected</span></p>
@@ -117,13 +117,13 @@ window.onload=async()=>{
     const mappedUsers4 = result3.applications.map((application, index) => {
 
         return `<div class="job">
-        <p >First name: ${application.firstname} </p>
-        <p>Last Name: ${application.lastname}</p>
-        <p> Applied Company: ${result3.newResults[index].companyname}</p>
-        <p>Applied job Title: ${result3.newResults[index].title}</p>
+        <p >First name: <span style ="text-transform: capitalize;" > ${application.firstname} </span> </p>
+        <p>Last Name: <span style ="text-transform: capitalize;" > ${application.lastname} </span> </p>
+        <p> Applied Company: <span style ="text-transform: capitalize;" > ${result3.newResults[index].companyname} </span> </p>
+        <p>Applied job Title: <span style ="text-transform: capitalize;" > ${result3.newResults[index].title} </span> </p>
         <p>Email: <a href="mailto:${application.email}" target="_blank">${application.email}</a></p> 
         <p>DOB (MM/Year) : ${application.month} / ${application.year} </p>
-        <p>gender: ${application.gender} </p>
+        <p>gender: <span style ="text-transform: capitalize;" > ${application.gender} </span> </p>
         <p>university Id: ${application.universityid}</p>
         <p>mobile: ${application.phone} </p>
         <p><strong>Status: </strong> <span style="text-transform: uppercase; font-weight: bolder;">Rejected</span></p>
